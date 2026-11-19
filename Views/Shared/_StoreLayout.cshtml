@@ -1,0 +1,22 @@
+@using Microsoft.AspNetCore.Authentication
+@{ var customer = (await Context.AuthenticateAsync("Customer")).Principal; }
+<!DOCTYPE html>
+<html lang="vi">
+<head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>@ViewData["Title"] | MotoShopABG</title>
+<link rel="stylesheet" href="~/css/store.css" asp-append-version="true" /><link rel="stylesheet" href="~/css/password-eye.css" asp-append-version="true" /></head>
+<body>
+<a class="skip" href="#main">Đến nội dung chính</a>
+<header class="header"><div class="wrap nav"><a class="logo" asp-controller="Home" asp-action="Index">MOTO<span>SHOP</span><b>ABG</b></a>
+<nav aria-label="Menu chính"><a asp-controller="Home" asp-action="Index">Trang chủ</a><a asp-controller="Home" asp-action="Vehicles">Khám phá xe</a><a asp-controller="Home" asp-action="Index" asp-fragment="about">Về cửa hàng</a><a asp-controller="Cart" asp-action="Index">Giỏ hàng</a>
+@if(customer?.Identity?.IsAuthenticated==true){<a asp-controller="Wishlist" asp-action="Index">Yêu thích ♥</a><a asp-controller="TestRide" asp-action="Index">Lái thử</a><a asp-controller="Orders" asp-action="Index">Đơn của tôi</a><a asp-controller="Customer" asp-action="Profile"><strong>@customer.Identity.Name</strong></a><a asp-controller="Customer" asp-action="Logout">Đăng xuất</a>}
+else{<a class="nav-login" asp-controller="Customer" asp-action="Login">Đăng nhập ↗</a>}
+</nav></div></header>
+<main id="main">
+@if(TempData["Success"] is string success){<div class="wrap notice" role="status">@success</div>}
+@if(TempData["Error"] is string error){<div class="wrap notice validation" role="alert">@error</div>}@RenderBody()</main>
+<footer class="wrap footer"><div><a class="logo" asp-controller="Home" asp-action="Index">MOTOSHOP<b>ABG</b></a><p>Chọn chiếc xe. Bắt đầu hành trình.</p></div><div><a asp-controller="Home" asp-action="Vehicles">Danh sách xe</a><small>© @DateTime.Now.Year MotoShopABG</small></div></footer>
+<script src="~/js/store.js" asp-append-version="true" defer></script>
+<script src="~/js/password-eye.js" asp-append-version="true" defer></script>
+@await RenderSectionAsync("Scripts", required: false)
+</body></html>

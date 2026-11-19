@@ -1,0 +1,8 @@
+@model PageVm<KhachHang>
+@{ ViewData["Title"] = "Khách hàng"; }
+<div class="heading"><div><h1>Khách hàng</h1><p>Thông tin liên hệ và trạng thái tài khoản khách hàng.</p></div></div>
+<form method="get" class="toolbar"><input name="q" value="@Model.Q" placeholder="Tìm kiếm..." aria-label="Tìm kiếm" maxlength="200" /><button class="btn" type="submit">Tìm</button><a class="btn secondary" href="@Url.Action()">Tất cả</a><span class="count">@Model.Total bản ghi</span></form>
+<div class="panel flush table-wrap"><table><thead><tr><th>Khách hàng</th><th>Liên hệ</th><th>Tài khoản</th><th>Trạng thái</th><th></th></tr></thead><tbody>
+@foreach (var k in Model.Items) { <tr><td><strong>@k.HoTen</strong><small>#@k.MaKh</small></td><td>@k.Email<small>@k.SoDienThoai</small></td><td>@(k.TaiKhoanKhachHang?.TenDangNhap ?? "Chưa có")</td><td><span class="badge @(k.TaiKhoanKhachHang?.TrangThai == true ? "" : "off")">@(k.TaiKhoanKhachHang is null ? "Chưa có tài khoản" : k.TaiKhoanKhachHang.TrangThai ? "Đang mở" : "Đã khóa")</span></td><td><a class="btn secondary small" asp-action="CustomerEdit" asp-route-id="@k.MaKh">Quản lý</a></td></tr> }
+@if (Model.Items.Count == 0) { <tr><td colspan="5" class="empty">Chưa có khách hàng phù hợp.</td></tr> }
+</tbody></table></div>@if (Model.TotalPages > 1) { <nav class="pager" aria-label="Phân trang">@if (Model.Page > 1) { <a class="btn secondary" href="@Url.Action(null, new { q = Model.Q, page = Model.Page - 1 })">Trước</a> }<span>Trang @Model.Page / @Model.TotalPages</span>@if (Model.Page < Model.TotalPages) { <a class="btn secondary" href="@Url.Action(null, new { q = Model.Q, page = Model.Page + 1 })">Sau</a> }</nav> }

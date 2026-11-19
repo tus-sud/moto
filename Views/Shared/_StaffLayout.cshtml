@@ -1,0 +1,12 @@
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<!DOCTYPE html><html lang="vi"><head>
+<meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>@ViewData["Title"] · MotoShop</title>
+<link rel="stylesheet" href="~/css/admin.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/password-eye.css" asp-append-version="true" />
+</head><body class="auth-body"><main class="auth-card">
+<a class="auth-brand" asp-controller="Admin" asp-action="Index">MOTOSHOP <span>ADMIN</span></a>
+@if (TempData["Success"] is string success) { <div class="notice success">@success</div> }
+@RenderBody()
+</main><script src="~/js/password-eye.js" asp-append-version="true" defer></script>
+</body></html>

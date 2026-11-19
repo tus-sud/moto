@@ -1,0 +1,9 @@
+@{ ViewData["Title"] = "Không đủ quyền"; }
+<h1>Bạn chưa được cấp quyền này</h1><p class="muted">Liên hệ admin nếu công việc của bạn cần quyền truy cập chức năng này.</p>
+@if (User.Identity?.IsAuthenticated == true)
+{
+    <a class="btn" asp-controller="Workspace" asp-action="Index">Về trang làm việc</a>
+    <a class="btn secondary" asp-controller="Staff" asp-action="ChangePassword">Đổi mật khẩu</a>
+    <form asp-controller="Staff" asp-action="Logout" method="post"><button class="btn secondary">Đăng xuất</button></form>
+}
+else { <a class="btn" asp-controller="Staff" asp-action="Login">Đăng nhập</a> }

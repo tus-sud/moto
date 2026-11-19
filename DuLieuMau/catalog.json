@@ -1,0 +1,520 @@
+[
+  {
+    "slug": "gold-wing-2025",
+    "brand": "Honda",
+    "name": "Honda Gold Wing 2025",
+    "category": "Touring",
+    "cc": 1833,
+    "power": 93.0,
+    "transmission": "Ly hợp kép 7 cấp DCT",
+    "price": 1231500000,
+    "colors": [
+      "Vàng Bạc Đen",
+      "Đỏ Đen"
+    ],
+    "description": "Touring; dung tích 1833 cc. Yên: 745 mm; Khối lượng: 390 kg; Bình xăng: 21 lít. Giá đề xuất hãng để tham khảo/demo, không phải xác nhận tồn kho hay giá chốt của MotoShopABG.",
+    "source": "https://www.honda.com.vn/xe-may/san-pham/gold-wing-2025",
+    "checked": "2026-11-03",
+    "images": [
+      "https://cdn.honda.com.vn/motorbike-versions/Image360/June2025/1749021902/0.png",
+      "https://cdn.honda.com.vn/motorbike-versions/Image360/June2025/1749021611/0.png"
+    ],
+    "extra_specs": {
+      "Yên": "745 mm",
+      "Khối lượng": "390 kg",
+      "Bình xăng": "21 lít"
+    },
+    "local_images": [
+      "/images/catalog-abg/gold-wing-2025-1.png",
+      "/images/catalog-abg/gold-wing-2025-2.png"
+    ]
+  },
+  {
+    "slug": "cbr1000rr-r-fireblade-sp-2024",
+    "brand": "Honda",
+    "name": "Honda CBR1000RR-R Fireblade SP 2024",
+    "category": "Sport",
+    "cc": 1000,
+    "power": 140.0,
+    "transmission": "Côn tay 6 số",
+    "price": 1051000000,
+    "colors": [
+      "Đỏ xanh trắng"
+    ],
+    "description": "Sport; dung tích 1000 cc. Yên: 830 mm; Khối lượng: 201 kg; Bình xăng: 16,5 lít. Giá đề xuất hãng để tham khảo/demo, không phải xác nhận tồn kho hay giá chốt của MotoShopABG.",
+    "source": "https://www.honda.com.vn/xe-may/san-pham/cbr1000rr-r-fireblade-sp-2024",
+    "checked": "2026-11-03",
+    "images": [
+      "https://cdn.honda.com.vn/motorbike-versions/Image360/October2024/1729823404/0.png"
+    ],
+    "extra_specs": {
+      "Yên": "830 mm",
+      "Khối lượng": "201 kg",
+      "Bình xăng": "16,5 lít"
+    },
+    "local_images": [
+      "/images/catalog-abg/cbr1000rr-r-fireblade-sp-2024-1.png"
+    ]
+  },
+  {
+    "slug": "africa-twin-2026-ban-adventure-sports",
+    "brand": "Honda",
+    "name": "Honda Africa Twin Adventure Sports 2026",
+    "category": "Adventure",
+    "cc": 1084,
+    "power": 75.0,
+    "transmission": "Hộp số tự động ly hợp kép 6 cấp DCT",
+    "price": 620990000,
+    "colors": [
+      "Trắng Xanh Đỏ"
+    ],
+    "description": "Adventure; dung tích 1084 cc. Yên: 835-855 mm; Khối lượng: 253 kg; Bình xăng: 24,8 lít. Giá đề xuất hãng để tham khảo/demo, không phải xác nhận tồn kho hay giá chốt của MotoShopABG.",
+    "source": "https://www.honda.com.vn/xe-may/san-pham/africa-twin-2026-ban-adventure-sports",
+    "checked": "2026-11-03",
+    "images": [
+      "https://cdn.honda.com.vn/motorbike-versions/Image360/June2026/1780486883/0.png"
+    ],
+    "extra_specs": {
+      "Yên": "835-855 mm",
+      "Khối lượng": "253 kg",
+      "Bình xăng": "24,8 lít"
+    },
+    "local_images": [
+      "/images/catalog-abg/africa-twin-2026-ban-adventure-sports-1.png"
+    ]
+  },
+  {
+    "slug": "africa-twin-2026-ban-tieu-chuan",
+    "brand": "Honda",
+    "name": "Honda Africa Twin Tiêu chuẩn 2026",
+    "category": "Adventure",
+    "cc": 1084,
+    "power": 75.0,
+    "transmission": "Côn tay 6 số",
+    "price": 540990000,
+    "colors": [
+      "Đỏ Đen"
+    ],
+    "description": "Adventure; dung tích 1084 cc. Yên: 850-870 mm; Khối lượng: 233 kg; Bình xăng: 18,8 lít. Giá đề xuất hãng để tham khảo/demo, không phải xác nhận tồn kho hay giá chốt của MotoShopABG.",
+    "source": "https://www.honda.com.vn/xe-may/san-pham/africa-twin-2026-ban-tieu-chuan",
+    "checked": "2026-11-03",
+    "images": [
+      "https://cdn.honda.com.vn/motorbike-versions/October2026/KuuBRGhkeacb9aGD7WsG.png"
+    ],
+    "extra_specs": {
+      "Yên": "850-870 mm",
+      "Khối lượng": "233 kg",
+      "Bình xăng": "18,8 lít"
+    },
+    "local_images": [
+      "/images/catalog-abg/africa-twin-2026-ban-tieu-chuan-1.png"
+    ]
+  },
+  {
+    "slug": "rebel-1100-2025",
+    "brand": "Honda",
+    "name": "Honda Rebel 1100 2025",
+    "category": "Cruiser",
+    "cc": 1084,
+    "power": 65.0,
+    "transmission": "Hộp số ly hợp kép 6 cấp DCT",
+    "price": 399990000,
+    "colors": [
+      "Đen"
+    ],
+    "description": "Cruiser; dung tích 1084 cc. Yên: 710 mm; Khối lượng: 236 kg; Bình xăng: 13,6 lít. Giá đề xuất hãng để tham khảo/demo, không phải xác nhận tồn kho hay giá chốt của MotoShopABG.",
+    "source": "https://www.honda.com.vn/xe-may/san-pham/rebel-1100-2025",
+    "checked": "2026-11-03",
+    "images": [
+      "https://cdn.honda.com.vn/motorbike-versions/Image360/September2025/1757727453/0.png"
+    ],
+    "extra_specs": {
+      "Yên": "710 mm",
+      "Khối lượng": "236 kg",
+      "Bình xăng": "13,6 lít"
+    },
+    "local_images": [
+      "/images/catalog-abg/rebel-1100-2025-1.png"
+    ]
+  },
+  {
+    "slug": "cb1000-hornet",
+    "brand": "Honda",
+    "name": "Honda CB1000 Hornet",
+    "category": "Naked",
+    "cc": 1000,
+    "power": 84.0,
+    "transmission": "Côn tay 6 số",
+    "price": 339900000,
+    "colors": [
+      "Đen"
+    ],
+    "description": "Naked; dung tích 1000 cc. Yên: 809 mm; Khối lượng: 211 kg; Bình xăng: 17 lít. Giá đề xuất hãng để tham khảo/demo, không phải xác nhận tồn kho hay giá chốt của MotoShopABG.",
+    "source": "https://www.honda.com.vn/xe-may/san-pham/cb1000-hornet",
+    "checked": "2026-11-03",
+    "images": [
+      "https://cdn.honda.com.vn/motorbike-versions/Image360/February2025/1740110485/0.jpg"
+    ],
+    "extra_specs": {
+      "Yên": "809 mm",
+      "Khối lượng": "211 kg",
+      "Bình xăng": "17 lít"
+    },
+    "local_images": [
+      "/images/catalog-abg/cb1000-hornet-1.jpg"
+    ]
+  },
+  {
+    "slug": "transalp-2025",
+    "brand": "Honda",
+    "name": "Honda Transalp 2025",
+    "category": "Adventure",
+    "cc": 755,
+    "power": 67.0,
+    "transmission": "Côn tay 6 số",
+    "price": 299990000,
+    "colors": [
+      "Trắng Đen",
+      "Đen"
+    ],
+    "description": "Adventure; dung tích 755 cc. Yên: 850 mm; Khối lượng: 210 kg; Bình xăng: 16,9 lít. Giá đề xuất hãng để tham khảo/demo, không phải xác nhận tồn kho hay giá chốt của MotoShopABG.",
+    "source": "https://www.honda.com.vn/xe-may/san-pham/transalp-2025",
+    "checked": "2026-11-03",
+    "images": [
+      "https://cdn.honda.com.vn/motorbike-versions/Image360/October2024/1729591808/0.png",
+      "https://cdn.honda.com.vn/motorbike-versions/Image360/October2024/1729591926/0.png"
+    ],
+    "extra_specs": {
+      "Yên": "850 mm",
+      "Khối lượng": "210 kg",
+      "Bình xăng": "16,9 lít"
+    },
+    "local_images": [
+      "/images/catalog-abg/transalp-2025-1.png",
+      "/images/catalog-abg/transalp-2025-2.png"
+    ]
+  },
+  {
+    "slug": "gb350s",
+    "brand": "Honda",
+    "name": "Honda GB350S",
+    "category": "Classic",
+    "cc": 348,
+    "power": 15.5,
+    "transmission": "5 cấp",
+    "price": 134990000,
+    "colors": [
+      "Xám Đen",
+      "Bạc Đen"
+    ],
+    "description": "Classic; dung tích 348 cc. Yên: 800 mm; Khối lượng: 178 kg; Bình xăng: 15,0 lít. Giá đề xuất hãng để tham khảo/demo, không phải xác nhận tồn kho hay giá chốt của MotoShopABG.",
+    "source": "https://www.honda.com.vn/xe-may/san-pham/gb350s",
+    "checked": "2026-11-03",
+    "images": [
+      "https://cdn.honda.com.vn/motorbike-versions/September2026/f3K9o1opzQqDczjJOzEl.png",
+      "https://cdn.honda.com.vn/motorbike-versions/September2026/7jMBY1RSpFnKDhkhES6k.png"
+    ],
+    "extra_specs": {
+      "Yên": "800 mm",
+      "Khối lượng": "178 kg",
+      "Bình xăng": "15,0 lít"
+    },
+    "local_images": [
+      "/images/catalog-abg/gb350s-1.png",
+      "/images/catalog-abg/gb350s-2.png"
+    ]
+  },
+  {
+    "slug": "rebel-500-2025",
+    "brand": "Honda",
+    "name": "Honda Rebel 500 2025",
+    "category": "Cruiser",
+    "cc": 471,
+    "power": 33.6,
+    "transmission": "Côn tay 6 số",
+    "price": 181300000,
+    "colors": [
+      "Đen",
+      "Trắng",
+      "Xám"
+    ],
+    "description": "Cruiser; dung tích 471 cc. Yên: 690 mm; Khối lượng: 190 kg; Bình xăng: 11,2 Lít. Giá đề xuất hãng để tham khảo/demo, không phải xác nhận tồn kho hay giá chốt của MotoShopABG.",
+    "source": "https://www.honda.com.vn/xe-may/san-pham/rebel-500-2025",
+    "checked": "2026-11-03",
+    "images": [
+      "https://cdn.honda.com.vn/motorbike-versions/February2025/J6MDkSx6THeUz9kWpuCp.png",
+      "https://cdn.honda.com.vn/motorbike-versions/February2025/q0gQVlmIcoQMAwXp94R0.png"
+    ],
+    "extra_specs": {
+      "Yên": "690 mm",
+      "Khối lượng": "190 kg",
+      "Bình xăng": "11,2 Lít"
+    },
+    "local_images": [
+      "/images/catalog-abg/rebel-500-2025-1.png",
+      "/images/catalog-abg/rebel-500-2025-2.png"
+    ]
+  },
+  {
+    "slug": "cl500",
+    "brand": "Honda",
+    "name": "Honda CL500",
+    "category": "Scrambler",
+    "cc": 471,
+    "power": 34.0,
+    "transmission": "Côn tay 6 số",
+    "price": 180990000,
+    "colors": [
+      "Đen",
+      "Nâu đen"
+    ],
+    "description": "Scrambler; dung tích 471 cc. Yên: 790 mm; Khối lượng: 193 kg; Bình xăng: 12,2 Lít. Giá đề xuất hãng để tham khảo/demo, không phải xác nhận tồn kho hay giá chốt của MotoShopABG.",
+    "source": "https://www.honda.com.vn/xe-may/san-pham/cl500",
+    "checked": "2026-11-03",
+    "images": [
+      "https://cdn.honda.com.vn/motorbike-versions/Image360/February2025/1740110282/0.jpg",
+      "https://cdn.honda.com.vn/motorbike-versions/Image360/February2025/1740110212/0.jpg"
+    ],
+    "extra_specs": {
+      "Yên": "790 mm",
+      "Khối lượng": "193 kg",
+      "Bình xăng": "12,2 Lít"
+    },
+    "local_images": [
+      "/images/catalog-abg/cl500-1.jpg",
+      "/images/catalog-abg/cl500-2.jpg"
+    ]
+  },
+  {
+    "slug": "cbr650r-2026",
+    "brand": "Honda",
+    "name": "Honda CBR650R 2026",
+    "category": "Sport",
+    "cc": 649,
+    "power": 61.7,
+    "transmission": "Côn tay 6 số",
+    "price": 269990000,
+    "colors": [
+      "Đỏ",
+      "Đen"
+    ],
+    "description": "Sport; dung tích 649 cc. Yên: 810 mm; Khối lượng: 210 kg; Bình xăng: 15,4 lít. Giá đề xuất hãng để tham khảo/demo, không phải xác nhận tồn kho hay giá chốt của MotoShopABG.",
+    "source": "https://www.honda.com.vn/xe-may/san-pham/cbr650r-2026",
+    "checked": "2026-11-03",
+    "images": [
+      "https://cdn.honda.com.vn/motorbike-versions/Image360/October2026/1791287572/0.png",
+      "https://cdn.honda.com.vn/motorbike-versions/Image360/October2026/1791287523/0.png"
+    ],
+    "extra_specs": {
+      "Yên": "810 mm",
+      "Khối lượng": "210 kg",
+      "Bình xăng": "15,4 lít"
+    },
+    "local_images": [
+      "/images/catalog-abg/cbr650r-2026-1.png",
+      "/images/catalog-abg/cbr650r-2026-2.png"
+    ]
+  },
+  {
+    "slug": "cb650r-2026",
+    "brand": "Honda",
+    "name": "Honda CB650R 2026",
+    "category": "Naked",
+    "cc": 649,
+    "power": 61.7,
+    "transmission": "Côn tay 6 số",
+    "price": 261990000,
+    "colors": [
+      "Đen Đỏ",
+      "Đen",
+      "Xanh Đen"
+    ],
+    "description": "Naked; dung tích 649 cc. Yên: 810 mm; Khối lượng: 205 kg; Bình xăng: 15,4 lít. Giá đề xuất hãng để tham khảo/demo, không phải xác nhận tồn kho hay giá chốt của MotoShopABG.",
+    "source": "https://www.honda.com.vn/xe-may/san-pham/cb650r-2026",
+    "checked": "2026-11-03",
+    "images": [
+      "https://cdn.honda.com.vn/motorbike-versions/Image360/October2026/1791286975/0.png",
+      "https://cdn.honda.com.vn/motorbike-versions/Image360/October2026/1791287038/0.png"
+    ],
+    "extra_specs": {
+      "Yên": "810 mm",
+      "Khối lượng": "205 kg",
+      "Bình xăng": "15,4 lít"
+    },
+    "local_images": [
+      "/images/catalog-abg/cb650r-2026-1.png",
+      "/images/catalog-abg/cb650r-2026-2.png"
+    ]
+  },
+  {
+    "slug": "cbr500r-2026",
+    "brand": "Honda",
+    "name": "Honda CBR500R 2026",
+    "category": "Sport",
+    "cc": 471,
+    "power": 37.1,
+    "transmission": "Côn tay 6 số",
+    "price": 209990000,
+    "colors": [
+      "Đỏ"
+    ],
+    "description": "Sport; dung tích 471 cc. Yên: 785 mm; Khối lượng: 195 kg; Bình xăng: 17,1 lít. Giá đề xuất hãng để tham khảo/demo, không phải xác nhận tồn kho hay giá chốt của MotoShopABG.",
+    "source": "https://www.honda.com.vn/xe-may/san-pham/cbr500r-2026",
+    "checked": "2026-11-03",
+    "images": [
+      "https://cdn.honda.com.vn/motorbike-versions/Image360/October2026/1791286158/0.png"
+    ],
+    "extra_specs": {
+      "Yên": "785 mm",
+      "Khối lượng": "195 kg",
+      "Bình xăng": "17,1 lít"
+    },
+    "local_images": [
+      "/images/catalog-abg/cbr500r-2026-1.png"
+    ]
+  },
+  {
+    "slug": "cb500-hornet-2026",
+    "brand": "Honda",
+    "name": "Honda CB500 Hornet 2026",
+    "category": "Naked",
+    "cc": 471,
+    "power": 37.1,
+    "transmission": "Côn tay 6 số",
+    "price": 199990000,
+    "colors": [
+      "Đen",
+      "Đỏ đen"
+    ],
+    "description": "Naked; dung tích 471 cc. Yên: 785 mm; Khối lượng: 192 kg; Bình xăng: 17,1 lít. Giá đề xuất hãng để tham khảo/demo, không phải xác nhận tồn kho hay giá chốt của MotoShopABG.",
+    "source": "https://www.honda.com.vn/xe-may/san-pham/cb500-hornet-2026",
+    "checked": "2026-11-03",
+    "images": [
+      "https://cdn.honda.com.vn/motorbike-versions/Image360/October2026/1791284416/0.png",
+      "https://cdn.honda.com.vn/motorbike-versions/Image360/October2026/1791284572/0.png"
+    ],
+    "extra_specs": {
+      "Yên": "785 mm",
+      "Khối lượng": "192 kg",
+      "Bình xăng": "17,1 lít"
+    },
+    "local_images": [
+      "/images/catalog-abg/cb500-hornet-2026-1.png",
+      "/images/catalog-abg/cb500-hornet-2026-2.png"
+    ]
+  },
+  {
+    "slug": "nx500-2026",
+    "brand": "Honda",
+    "name": "Honda NX500 2026",
+    "category": "Adventure",
+    "cc": 471,
+    "power": 37.1,
+    "transmission": "Côn tay 6 số",
+    "price": 213290000,
+    "colors": [
+      "Trắng Bạc Đen",
+      "Đen",
+      "Đen Xanh"
+    ],
+    "description": "Adventure; dung tích 471 cc. Yên: 830 mm; Khối lượng: 200 kg; Bình xăng: 17,7 lít. Giá đề xuất hãng để tham khảo/demo, không phải xác nhận tồn kho hay giá chốt của MotoShopABG.",
+    "source": "https://www.honda.com.vn/xe-may/san-pham/nx500-2026",
+    "checked": "2026-11-03",
+    "images": [
+      "https://cdn.honda.com.vn/motorbike-versions/Image360/October2026/1791282017/0.jpg",
+      "https://cdn.honda.com.vn/motorbike-versions/Image360/October2026/1791282172/0.jpg"
+    ],
+    "extra_specs": {
+      "Yên": "830 mm",
+      "Khối lượng": "200 kg",
+      "Bình xăng": "17,7 lít"
+    },
+    "local_images": [
+      "/images/catalog-abg/nx500-2026-1.jpg",
+      "/images/catalog-abg/nx500-2026-2.jpg"
+    ]
+  },
+  {
+    "slug": "2026-z650-s",
+    "brand": "Kawasaki",
+    "name": "Kawasaki Z650 2026",
+    "category": "Naked",
+    "cc": 649,
+    "power": 50.2,
+    "transmission": "6 cấp",
+    "price": 199000000,
+    "colors": [],
+    "description": "Naked; dung tích 649 cc. Yên: 805 mm; Khối lượng: 190 kg; Bình xăng: 15 lít. Giá đề xuất hãng để tham khảo/demo, không phải xác nhận tồn kho hay giá chốt của MotoShopABG.",
+    "source": "https://www.kawasaki-motors.vn/vi-vn/xe-mo-to/z/supernaked/z650/2026-z650-s",
+    "checked": "2026-11-03",
+    "images": [
+      "https://kawasaki-global-admin.com/ContentStorage/KMV/Products/4964/28334759-2da8-4bda-be76-bcd6b6997aae.jpg",
+      "https://kawasaki-global-admin.com/ContentStorage/KMV/Products/4964/87fcadc2-71a4-4408-ab6e-c2dceb02ec7b.jpg"
+    ],
+    "extra_specs": {
+      "Yên": "805 mm",
+      "Khối lượng": "190 kg",
+      "Bình xăng": "15 lít"
+    },
+    "local_images": [
+      "/images/catalog-abg/2026-z650-s-1.jpg",
+      "/images/catalog-abg/2026-z650-s-2.jpg"
+    ]
+  },
+  {
+    "slug": "2026-z900",
+    "brand": "Kawasaki",
+    "name": "Kawasaki Z900 2026",
+    "category": "Naked",
+    "cc": 948,
+    "power": 91.0,
+    "transmission": "Hộp số 6 cấp",
+    "price": 299000000,
+    "colors": [],
+    "description": "Naked; dung tích 948 cc. Yên: 830 mm; Khối lượng: 213 kg; Bình xăng: 17 lít. Giá đề xuất hãng để tham khảo/demo, không phải xác nhận tồn kho hay giá chốt của MotoShopABG.",
+    "source": "https://www.kawasaki-motors.vn/vi-vn/xe-mo-to/z/supernaked/z900/2026-z900",
+    "checked": "2026-11-03",
+    "images": [
+      "https://kawasaki-global-admin.com/ContentStorage/KMV/Products/4961/a0f84345-a01e-484d-95c1-5466cdf73c87.jpg",
+      "https://kawasaki-global-admin.com/ContentStorage/KMV/Products/4961/d44c318e-ba08-40a5-a7d6-4b88c6ae4115.jpg"
+    ],
+    "extra_specs": {
+      "Yên": "830 mm",
+      "Khối lượng": "213 kg",
+      "Bình xăng": "17 lít"
+    },
+    "local_images": [
+      "/images/catalog-abg/2026-z900-1.jpg",
+      "/images/catalog-abg/2026-z900-2.jpg"
+    ]
+  },
+  {
+    "slug": "2026-ninja-zx-4rr",
+    "brand": "Kawasaki",
+    "name": "Kawasaki Ninja ZX-4RR 2026",
+    "category": "Sport",
+    "cc": 399,
+    "power": 57.0,
+    "transmission": "Hộp số 6 cấp",
+    "price": 229000000,
+    "colors": [
+      "Xanh Lime"
+    ],
+    "description": "Sport; dung tích 399 cc. Yên: 800 mm; Khối lượng: 189 kg; Bình xăng: 15 lít. Giá đề xuất hãng để tham khảo/demo, không phải xác nhận tồn kho hay giá chốt của MotoShopABG.",
+    "source": "https://www.kawasaki-motors.vn/vi-vn/xe-mo-to/ninja/supersport/ninja-zx-4rr/2026-ninja-zx-4rr",
+    "checked": "2026-11-03",
+    "images": [
+      "https://kawasaki-global-admin.com/ContentStorage/KMV/Products/4962/28cea767-9096-44dc-a4a4-f4be5612b58b.png",
+      "https://kawasaki-global-admin.com/ContentStorage/KMV/Products/4962/b392ad1d-b307-43b8-ae9f-d0615ae1fd29.jpg"
+    ],
+    "extra_specs": {
+      "Yên": "800 mm",
+      "Khối lượng": "189 kg",
+      "Bình xăng": "15 lít"
+    },
+    "local_images": [
+      "/images/catalog-abg/2026-ninja-zx-4rr-1.png",
+      "/images/catalog-abg/2026-ninja-zx-4rr-2.jpg"
+    ]
+  }
+]

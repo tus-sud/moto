@@ -1,0 +1,50 @@
+@model List<MotoShopWeb.ViewModels.StoreCard>
+@using System.Globalization
+@{ ViewData["Title"] = "Xe yêu thích"; }
+<section class="wrap section">
+    <p class="eyebrow">TÀI KHOẢN CỦA BẠN</p>
+    <div class="section-title">
+        <h1 class="page-title" style="margin:0">Danh sách xe yêu thích (@Model.Count)</h1>
+        <a asp-controller="Home" asp-action="Vehicles">Khám phá thêm mẫu xe →</a>
+    </div>
+
+    @if (Model.Count == 0)
+    {
+        <div class="empty">
+            <h3>Bạn chưa lưu mẫu xe nào</h3>
+            <p>Bấm nút <strong>"♥ Lưu xe yêu thích"</strong> ở trang chi tiết xe để lưu lại những mẫu xe bạn quan tâm.</p>
+            <a class="button" asp-controller="Home" asp-action="Vehicles">Xem danh mục xe →</a>
+        </div>
+    }
+    else
+    {
+        <div class="grid">
+            @foreach (var bike in Model)
+            {
+                <article class="bike">
+                    <a class="photo" asp-controller="Home" asp-action="Details" asp-route-id="@bike.Id">
+                        <img src="@bike.Image" alt="@bike.Name" loading="lazy" width="640" height="420" />
+                        <span>@bike.Category</span>
+                    </a>
+                    <div class="bike-body">
+                        <p class="eyebrow">@bike.Brand</p>
+                        <h3><a asp-controller="Home" asp-action="Details" asp-route-id="@bike.Id">@bike.Name</a></h3>
+                        <p class="spec">@(bike.Engine.HasValue ? $"{bike.Engine} cc" : "Dung tích đang cập nhật") · @(bike.Year?.ToString() ?? "Năm đang cập nhật")</p>
+                        <div class="price">
+                            <strong>@bike.Price.ToString("N0", CultureInfo.GetCultureInfo("vi-VN")) ₫</strong>
+                            <div style="display:flex;gap:8px;align-items:center">
+                                <form asp-controller="Wishlist" asp-action="Toggle" method="post" style="margin:0">
+                                    <input type="hidden" name="bikeId" value="@bike.Id" />
+                                    <input type="hidden" name="returnUrl" value="/Wishlist" />
+                                    <button type="submit" class="text-button" style="font-size:13px;color:#9d2020" title="Bỏ yêu thích">Bỏ lưu</button>
+                                </form>
+                                <a asp-controller="Home" asp-action="Details" asp-route-id="@bike.Id" aria-label="Xem chi tiết @bike.Name">↗</a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            }
+        </div>
+    }
+</section>
+

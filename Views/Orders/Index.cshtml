@@ -1,0 +1,7 @@
+@model List<MotoShopWeb.Models.DonHang>
+@using MotoShopWeb.ViewModels
+@{ViewData["Title"]="Đơn của tôi";}
+<section class="wrap section"><p class="eyebrow">TÀI KHOẢN CỦA BẠN</p><h1 class="page-title">Hành trình mua xe</h1>
+@if(Model.Count==0){<div class="empty">Chưa có đơn hàng trên trang này. <a asp-controller="Home" asp-action="Vehicles">Khám phá xe →</a></div>}
+@foreach(var order in Model){<article class="cart-line"><div><p class="eyebrow">ĐƠN #@order.MaDonHang · @order.NgayDat.ToString("dd/MM/yyyy HH:mm")</p><h3>@OrderLabels.Name(order.TrangThai)</h3><p>@order.TongTien.ToString("N0") ₫</p></div><div class="actions"><a class="button" style="background:#eff3e8" asp-action="Invoice" asp-route-id="@order.MaDonHang">Hóa đơn &amp; Bảo hành</a><a class="button" asp-action="Details" asp-route-id="@order.MaDonHang">Xem đơn →</a></div></article>}
+<nav class="pagination">@if(ViewBag.Page>1){<a asp-route-page="@(ViewBag.Page-1)">← Trước</a>}<span>Trang @ViewBag.Page</span>@if(Model.Count==20){<a asp-route-page="@(ViewBag.Page+1)">Tiếp →</a>}</nav></section>

@@ -1,0 +1,25 @@
+@model XeForm
+@{ ViewData["Title"] = Model.Id == 0 ? "Thêm xe" : "Sửa xe"; }
+<div class="heading"><div><h1>@ViewData["Title"]</h1><p>Thông tin mẫu xe; số khung, số máy sẽ quản lý riêng ở phần kho.</p></div></div>
+<form asp-action="VehicleEdit" method="post" class="panel"><div asp-validation-summary="All"></div><input asp-for="Id" type="hidden" /><div class="form-grid">
+<div class="field"><label asp-for="TenXe">Tên xe</label><input asp-for="TenXe" /><span asp-validation-for="TenXe"></span></div>
+<div class="field"><label asp-for="MaHang">Hãng xe</label><select asp-for="MaHang" asp-items="Model.Hangs"><option value="">Chọn...</option></select><span asp-validation-for="MaHang"></span></div>
+<div class="field"><label asp-for="MaLoai">Loại xe</label><select asp-for="MaLoai" asp-items="Model.Loais"><option value="">Chọn...</option></select><span asp-validation-for="MaLoai"></span></div>
+<div class="field"><label asp-for="GiaNiemYet">Giá niêm yết (VNĐ)</label><input asp-for="GiaNiemYet" type="number" step="1" /><span asp-validation-for="GiaNiemYet"></span></div>
+<div class="field"><label asp-for="NamSanXuat">Năm sản xuất</label><input asp-for="NamSanXuat" type="number" /><span asp-validation-for="NamSanXuat"></span></div>
+<div class="field"><label asp-for="DungTichCc">Dung tích (cc)</label><input asp-for="DungTichCc" type="number" /><span asp-validation-for="DungTichCc"></span></div>
+<div class="field"><label asp-for="CongSuatKw">Công suất (kW)</label><input asp-for="CongSuatKw" type="number" step="0.1" /><span asp-validation-for="CongSuatKw"></span></div>
+<div class="field"><label asp-for="SoCho">Số chỗ</label><input asp-for="SoCho" type="number" /><span asp-validation-for="SoCho"></span></div>
+<div class="field"><label asp-for="HopSo">Hộp số</label><input asp-for="HopSo" /><span asp-validation-for="HopSo"></span></div>
+<div class="field"><label asp-for="KieuDanDong">Kiểu dẫn động</label><input asp-for="KieuDanDong" /><span asp-validation-for="KieuDanDong"></span></div>
+<div class="field wide"><label asp-for="AnhChinh">Đường dẫn ảnh chính</label><input asp-for="AnhChinh" type="text" /><span asp-validation-for="AnhChinh"></span><small>Dùng https://... hoặc /images/ten-anh.jpg. Xóa nội dung để bỏ ảnh chính.</small></div>
+<div class="field wide"><label asp-for="MauMoi">Thêm màu xe</label><input asp-for="MauMoi" type="text" /><span asp-validation-for="MauMoi"></span><small>Nhập các màu cách nhau bằng dấu phẩy; màu đã có sẽ được giữ lại.</small></div>
+<div class="field wide"><label asp-for="MoTa">Mô tả</label><textarea asp-for="MoTa"></textarea><span asp-validation-for="MoTa"></span></div>
+<p class="muted wide">Màu hiện có: @(string.IsNullOrEmpty(Model.MauHienCo) ? "Chưa có" : Model.MauHienCo)</p>@if (ViewBag.CanChangeVisibility == true)
+{
+    <div class="check wide"><input asp-for="HienThi" /><label asp-for="HienThi">Cho phép hiển thị trên trang bán hàng</label></div>
+}
+else
+{
+    <p class="form-hint wide">Bạn không được thay đổi trạng thái hiển thị. Xe mới được lưu ở trạng thái ẩn để người có quyền kiểm tra và cho hiện.</p>
+}</div><div class="form-footer"><button class="btn">Lưu xe</button><a class="btn secondary" asp-action="Vehicles">Hủy</a></div></form>

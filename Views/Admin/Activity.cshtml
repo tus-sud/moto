@@ -1,0 +1,8 @@
+@model PageVm<NhatKyHeThong>
+@{ ViewData["Title"] = "Nhật ký hoạt động"; }
+<div class="heading"><div><h1>Nhật ký hoạt động</h1><p>Lịch sử thao tác được ứng dụng ghi nhận; đây không phải danh sách người đang online.</p></div></div>
+<form method="get" class="toolbar"><input name="q" value="@Model.Q" placeholder="Tìm kiếm..." aria-label="Tìm kiếm" maxlength="200" /><button class="btn" type="submit">Tìm</button><a class="btn secondary" href="@Url.Action()">Tất cả</a><span class="count">@Model.Total bản ghi</span></form>
+<div class="panel flush table-wrap"><table><thead><tr><th>Thời gian</th><th>Người thực hiện</th><th>Hành động</th><th>Đối tượng</th><th>Chi tiết</th></tr></thead><tbody>
+@foreach (var n in Model.Items) { <tr><td class="nowrap">@n.ThoiGian.ToString("dd/MM/yyyy HH:mm:ss")</td><td>@(n.MaNvNavigation?.HoTen ?? "Hệ thống / chưa xác định")</td><td><span class="badge">@n.HanhDong</span></td><td>@n.BangTacDong<small>#@n.MaBanGhi</small></td><td class="detail">@n.ChiTiet</td></tr> }
+@if (Model.Items.Count == 0) { <tr><td colspan="5" class="empty">Chưa có nhật ký phù hợp.</td></tr> }
+</tbody></table></div>@if (Model.TotalPages > 1) { <nav class="pager" aria-label="Phân trang">@if (Model.Page > 1) { <a class="btn secondary" href="@Url.Action(null, new { q = Model.Q, page = Model.Page - 1 })">Trước</a> }<span>Trang @Model.Page / @Model.TotalPages</span>@if (Model.Page < Model.TotalPages) { <a class="btn secondary" href="@Url.Action(null, new { q = Model.Q, page = Model.Page + 1 })">Sau</a> }</nav> }

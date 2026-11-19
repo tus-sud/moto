@@ -1,0 +1,6 @@
+@{ ViewData["Title"] = "Hãng và loại xe"; }
+<div class="heading"><div><h1>Hãng &amp; loại xe</h1><p>Thêm danh mục trước khi nhập mẫu xe.</p></div></div>
+<div class="two-columns">
+<section class="panel"><h2>Hãng xe</h2><form asp-action="AddCatalog" method="post" class="toolbar"><input type="hidden" name="kind" value="brand" /><input name="name" maxlength="100" required placeholder="Ví dụ: Kawasaki" aria-label="Tên hãng xe" /><button class="btn">Thêm</button></form><ul class="list">@foreach (HangXe h in ViewBag.Brands) { <li>@h.TenHang</li> }</ul></section>
+<section class="panel"><h2>Loại xe</h2><form asp-action="AddCatalog" method="post" class="toolbar"><input type="hidden" name="kind" value="type" /><input name="name" maxlength="100" required placeholder="Ví dụ: Naked bike" aria-label="Tên loại xe" /><button class="btn">Thêm</button></form><ul class="list">@foreach (LoaiXe l in ViewBag.Types) { <li>@l.TenLoai</li> }</ul></section>
+</div>

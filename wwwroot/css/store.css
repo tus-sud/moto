@@ -1,0 +1,895 @@
+:root{--ink:#17251e;--muted:#617066;--green:#cfed8b;--line:#dfe5dc}*{box-sizing:border-box}body{margin:0;color:var(--ink);background:#fafbf8;font:16px/1.6 'Segoe UI',Arial,sans-serif}a{color:inherit;text-decoration:none}a:hover{text-decoration:underline}img{max-width:100%;display:block}.wrap{width:min(1200px,calc(100% - 64px));margin:auto}.header{background:#fafbf8;border-bottom:1px solid var(--line)}.nav{min-height:90px;display:flex;align-items:center;justify-content:space-between;gap:24px}.logo{font-size:22px;font-weight:850;letter-spacing:-1px;white-space:nowrap}.logo span{font-weight:400}.logo b{background:var(--ink);color:var(--green);padding:4px 7px;margin-left:7px;font-size:15px;letter-spacing:1px}nav{display:flex;gap:28px;font-size:14px}.hero{background:radial-gradient(ellipse at 95% 20%,#476749 0,transparent 55%),#182b21;color:#fff;position:relative;overflow:hidden}.hero:after{content:'';position:absolute;width:550px;height:550px;border:1px solid #c5e5ab22;border-radius:50%;right:-220px;top:60px;box-shadow:0 0 0 80px #c5e5ab08,0 0 0 160px #c5e5ab04;pointer-events:none}.hero-inner{padding-top:70px;padding-bottom:28px;position:relative;z-index:1}.eyebrow{font-size:11px;letter-spacing:2px;font-weight:700}.hero .eyebrow{color:var(--green)}h1{font-size:clamp(40px,6.2vw,76px);line-height:1.12;letter-spacing:-2.5px;margin:25px 0}h1 em{color:var(--green);font-style:normal}.intro{max-width:550px;color:#ccd8cd;font-size:18px;margin:24px 0 32px}.button{border:0;background:var(--green);color:var(--ink);display:inline-flex;align-items:center;gap:32px;padding:15px 23px;font:inherit;font-weight:650;cursor:pointer}.button:hover{background:#bde06e;text-decoration:none}.hero-bottom{display:flex;justify-content:space-between;border-top:1px solid #ffffff26;margin-top:65px;padding-top:22px;font-size:10px;letter-spacing:2px;color:#b8cbbd}.section{padding-top:64px;padding-bottom:70px}.section-title{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:28px}h2{font-size:30px;line-height:1.25;letter-spacing:-.6px;margin:10px 0 20px}h3{margin:5px 0;font-size:22px;line-height:1.3}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}.bike{border:1px solid var(--line);background:white}.photo{display:block;position:relative;background:#eef0ed;overflow:hidden}.photo img{width:100%;height:235px;object-fit:contain;transition:transform .2s}.photo:hover img{transform:scale(1.025)}.photo span{position:absolute;left:14px;top:14px;background:#ffffffed;padding:4px 10px;font-size:11px}.bike-body{padding:22px}.bike-body .eyebrow{color:var(--muted);margin:0 0 10px}.spec{font-size:13px;color:var(--muted);margin:12px 0 22px}.price{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--line);padding-top:18px}.price strong{font-size:20px}.price a{background:var(--green);width:34px;height:34px;text-align:center;font-size:22px}.about{background:#eaf0e3;padding:65px 0}.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:90px}.about p{max-width:540px}.steps>div{display:flex;align-items:start;gap:24px;border-bottom:1px solid #ced9c6;padding:8px 0}.steps b{padding-top:16px;color:#67814e}.steps strong{font-size:19px}.footer{display:flex;justify-content:space-between;gap:30px;padding-top:44px;padding-bottom:40px}.footer p,.footer small{color:var(--muted);font-size:13px}.footer>div:last-child{display:flex;flex-direction:column;gap:10px;font-size:13px}.page-title{font-size:42px;letter-spacing:-1px}.search{display:flex;gap:14px;align-items:center;flex-wrap:wrap;padding:22px;background:#edf1e8;margin:30px 0}.search label{width:100%;font-size:13px;font-weight:600}.search input{flex:1;min-width:170px;padding:14px;border:1px solid #c9d4c2;font:inherit}.search>a{font-size:13px}.muted{color:var(--muted)}.pagination{display:flex;justify-content:center;align-items:center;margin-top:30px;gap:25px}.pagination a{border:1px solid var(--line);padding:10px 16px}.empty{padding:50px 25px;text-align:center;background:#eef2e8;border:1px dashed #c3cdbb}.detail{display:grid;grid-template-columns:1.1fr 1fr;gap:50px;margin-top:35px}.main-photo{width:100%;height:auto;aspect-ratio:4/3;object-fit:contain;background:#eef0ed}.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:12px}.gallery img{width:100%;height:auto;aspect-ratio:4/3;object-fit:contain;background:#eef0ed}.detail-price{font-size:32px;font-weight:750;margin:18px 0 0}dl{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);margin:25px 0}dt,dd{margin:0;padding:12px 0;border-bottom:1px solid var(--line)}dt{color:var(--muted)}dd{text-align:right}.description{white-space:pre-wrap;overflow-wrap:anywhere}.skip{position:absolute;left:-999px}.skip:focus{left:12px;top:12px;z-index:10;background:white;padding:10px}:focus-visible{outline:3px solid #588b28;outline-offset:4px}@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}.about-grid,.detail{gap:30px}.nav{flex-wrap:wrap;padding:18px 0}nav{gap:16px}}@media(max-width:600px){.wrap{width:calc(100% - 32px)}.grid,.about-grid,.detail{grid-template-columns:1fr}.hero-inner{padding-top:42px}.hero-bottom{gap:16px;flex-wrap:wrap;margin-top:40px}.section{padding:40px 0}.section-title{align-items:start;flex-direction:column}.page-title{font-size:34px}.photo img{height:240px}.footer{flex-direction:column}.search .button{width:100%;justify-content:center}.about{padding:40px 0}nav{font-size:13px}.detail{gap:24px}}
+
+.header{position:sticky;top:0;z-index:20;box-shadow:0 4px 24px #132c1508}.nav{min-height:78px}.nav nav{align-items:center;gap:20px;flex-wrap:wrap}.nav form{margin:0}.nav-login{padding:9px 14px;background:var(--ink);color:white}.hero-grid{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:32px}.hero h1{font-size:clamp(42px,5.5vw,70px)}.hero-inner{padding-top:52px}.hero:after{display:none}.hero-bottom{margin-top:40px}.actions{display:flex;gap:12px;flex-wrap:wrap}.outline{background:transparent;border:1px solid #adbead;color:white}.outline:hover{color:var(--ink)}.showcase{min-width:0;background:#f4f6f1;border-radius:24px;overflow:hidden;box-shadow:0 24px 90px #0005;transform:rotate(-2deg);color:var(--ink)}.slides{position:relative;aspect-ratio:1.3}.slide{position:absolute;inset:0;margin:0;opacity:0;visibility:hidden;transition:opacity .7s ease,visibility .7s}.slide.active{opacity:1;visibility:visible}.slide img{height:100%;width:100%;object-fit:contain;mix-blend-mode:multiply;padding:24px;animation:float-bike 6s ease-in-out infinite}.slide figcaption{position:absolute;bottom:12px;left:24px;font-size:11px;letter-spacing:2px;font-weight:750}.slide-controls{display:flex;gap:12px;align-items:center;justify-content:center;background:#e9efdf;padding:12px;font-size:12px}.slide-controls button{border:1px solid #c4d0b7;background:transparent;padding:8px 10px;color:inherit;cursor:pointer;border-radius:5px}.quick-links{display:flex;gap:14px;flex-wrap:wrap;padding-top:25px}.quick-links a{padding:11px 22px;border:1px solid var(--line);border-radius:30px;font-size:13px;background:white}.quick-links a:hover{background:var(--green);text-decoration:none}.bike{border-radius:14px;overflow:hidden;transition:transform .25s,box-shadow .25s}.bike:hover{transform:translateY(-5px);box-shadow:0 18px 35px #203b1812}.bike .photo{background:white}.feature-band{padding:50px 0;background:#182b21;color:white}.feature-band img{width:100%;height:360px;object-fit:contain;background:white;border-radius:18px}.feature-band .about-grid{align-items:center;gap:70px}.feature-band h2{font-size:42px}.steps-grid article{border-top:3px solid var(--green);padding:26px;background:#eff3e8}.steps-grid b{font-size:11px;letter-spacing:2px}.steps-grid h3{margin-top:18px}.faq{max-width:850px;margin:60px auto 0}.faq details{padding:18px 0;border-bottom:1px solid var(--line)}summary{font-weight:650;cursor:pointer}.panel{padding:30px;border:1px solid var(--line);background:white;border-radius:16px}.form-stack{display:flex;flex-direction:column;gap:12px}.form-stack h2{margin-bottom:0}.form-stack label{font-weight:650;font-size:14px}.form-stack input,.form-stack textarea,select{padding:13px;border:1px solid #bfccba;border-radius:6px;font:inherit;width:100%;background:white;color:var(--ink)}.form-stack small{color:var(--muted)}.form-stack .button{justify-content:center;margin-top:14px}.auth-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start}.auth-story h1{font-size:56px}.auth-story img{width:100%;height:310px;object-fit:contain;mix-blend-mode:multiply}.checkout-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:30px;align-items:start}.cart-line{display:flex;align-items:center;justify-content:space-between;gap:20px;border-bottom:1px solid var(--line);padding:24px 0}.text-button{background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer;text-decoration:underline}.validation{color:#9d2020}.validation ul{padding-left:20px}.notice{padding:18px 24px;background:#edf3e3;border-left:4px solid #a0c65d;margin-top:20px}.purchase-box{display:flex;flex-direction:column;gap:12px;background:#edf2e5;padding:20px;margin:25px 0}.thumbnail{border:1px solid var(--line);padding:0;cursor:pointer;background:white}.thumbnail:focus,.thumbnail:hover{border-color:#4c702d}.gallery{grid-template-columns:repeat(4,1fr)}.search{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:12px}.search label{grid-row:1}.search input,.search select{grid-row:2;min-width:0;width:100%}.search .button{grid-row:3}.search>a{grid-row:3;align-self:center}.search label:nth-of-type(1){grid-column:1}.search label:nth-of-type(2){grid-column:2}.search label:nth-of-type(3){grid-column:3}.search label:nth-of-type(4){grid-column:4}.badge{display:inline-block;padding:5px 12px;background:#e3efce;border-radius:20px}.password-eye-field input{width:100%}
+@keyframes float-bike{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@media(max-width:1000px){.nav{gap:14px}.nav nav{gap:12px}.hero-grid{gap:20px}.auth-grid{gap:30px}.search{grid-template-columns:1fr 1fr}.search label{grid-row:auto!important;grid-column:1!important}.search input,.search select{grid-row:auto;grid-column:2}.search .button,.search>a{grid-row:auto}.showcase{transform:none}}
+@media(max-width:700px){.hero-grid,.auth-grid,.checkout-grid{grid-template-columns:1fr}.hero h1{font-size:48px}.showcase{margin-top:25px}.hero-inner{padding-top:30px}.hero-bottom{letter-spacing:1px}.feature-band .about-grid{grid-template-columns:1fr;gap:25px}.auth-story{display:none}.panel{padding:22px}.nav nav{gap:10px;font-size:12px}.nav{justify-content:center}.cart-line{flex-wrap:wrap}.search{grid-template-columns:1fr}.search label,.search input,.search select{grid-column:1!important}.search .button{grid-column:1}.feature-band img{height:260px}.section{padding:40px 0}}
+@media(prefers-reduced-motion:reduce){.skip{transition:none}}
+
+/* Hero Showcase: Không khung trắng, xe đặt thẳng song song trên mặt đường */
+.showcase {
+    position: relative;
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    transform: none !important;
+    color: #ffffff;
+    overflow: visible;
+}
+
+.showcase .slides {
+    position: relative;
+    aspect-ratio: 1.38;
+    overflow: hidden;
+    background: transparent !important;
+}
+
+.road-scene {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Mặt đường nhựa chạy ngang thẳng tắp dưới bánh xe, hòa vào nền Hero */
+.road-asphalt {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 24px;
+    height: 46px;
+    background: linear-gradient(180deg, rgba(16, 28, 21, 0) 0%, rgba(15, 24, 19, 0.85) 35%, rgba(10, 17, 13, 0.95) 100%);
+    border-bottom: 2px solid rgba(207, 237, 139, 0.35);
+}
+
+/* Vạch kẻ đường đứt đoạn song song với xe, trôi liên tục từ trái sang phải */
+.road-lane {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 52%;
+    height: 4px;
+    background-image: repeating-linear-gradient(
+        90deg,
+        rgba(207, 237, 139, 0.85) 0px,
+        rgba(207, 237, 139, 0.85) 48px,
+        transparent 48px,
+        transparent 96px
+    );
+    background-size: 96px 100%;
+    animation: lane-scroll 0.26s linear infinite;
+}
+
+/* Bóng đổ dưới 2 bánh xe tiếp xúc với mặt đường */
+.showcase .slides::after {
+    content: "";
+    position: absolute;
+    left: 12%;
+    right: 12%;
+    bottom: 34px;
+    height: 18px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.35) 55%, transparent 78%);
+    animation: shadow-pulse 1.4s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Luồng gió tốc độ chạy ngang song song với thân xe */
+.speed-lines {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.speed-lines span {
+    position: absolute;
+    height: 2px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, transparent, rgba(207, 237, 139, 0.55), transparent);
+    animation: speed-streak-right 0.7s linear infinite;
+}
+
+.speed-lines span:nth-child(1) { width: 180px; top: 26%; left: -190px; animation-delay: 0s; animation-duration: 0.65s; }
+.speed-lines span:nth-child(2) { width: 250px; top: 44%; left: -260px; animation-delay: 0.18s; animation-duration: 0.78s; }
+.speed-lines span:nth-child(3) { width: 160px; top: 58%; left: -170px; animation-delay: 0.35s; animation-duration: 0.58s; }
+.speed-lines span:nth-child(4) { width: 220px; top: 72%; left: -230px; animation-delay: 0.5s; animation-duration: 0.7s; }
+.speed-lines span:nth-child(5) { width: 200px; top: 82%; left: -210px; animation-delay: 0.25s; animation-duration: 0.52s; }
+
+.showcase.is-paused .speed-lines span,
+.showcase.is-paused .road-lane,
+.showcase.is-paused .slides::after {
+    animation-play-state: paused;
+}
+
+/* Chuyển xe: Xe chạy thẳng song song mặt đường (không xoay nghiêng) */
+.showcase .slide {
+    z-index: 2;
+    transform: translateX(-220px);
+    transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+                visibility 0.55s;
+}
+
+.showcase .slide.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+.showcase .slide img {
+    mix-blend-mode: normal !important;
+    padding: 8px 10px 38px;
+    filter: drop-shadow(0 16px 22px rgba(0, 0, 0, 0.55));
+    will-change: transform;
+}
+
+.showcase .slide.active img {
+    animation: bike-drive-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards,
+               bike-road-ride 1.6s ease-in-out 0.6s infinite !important;
+}
+
+.showcase .slide figcaption {
+    bottom: 4px;
+    left: 0;
+    color: var(--green);
+    font-size: 11px;
+    letter-spacing: 2px;
+    font-weight: 750;
+    z-index: 3;
+}
+
+.slide-progress {
+    height: 3px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.14);
+    border-radius: 999px;
+    overflow: hidden;
+    margin-top: 6px;
+}
+
+.slide-progress-bar {
+    height: 100%;
+    width: 100%;
+    background: var(--green);
+    transform: scaleX(0);
+    transform-origin: left center;
+}
+
+.showcase .slide-controls {
+    background: transparent;
+    justify-content: flex-start;
+    padding: 12px 0 0;
+    color: #ccd8cd;
+}
+
+.showcase .slide-controls button {
+    border-color: rgba(207, 237, 139, 0.35);
+    color: #ffffff;
+}
+
+.showcase .slide-controls button:hover {
+    background: rgba(207, 237, 139, 0.16);
+}
+
+@keyframes lane-scroll {
+    from { background-position: 0 0; }
+    to { background-position: 96px 0; }
+}
+
+@keyframes bike-drive-in {
+    0% {
+        transform: translateX(220px) translateY(0px);
+    }
+    100% {
+        transform: translateX(0px) translateY(0px);
+    }
+}
+
+/* Xe chạy thẳng song song mặt đường: chỉ tiến/lùi dọc làn đường và nhún nhẹ theo mặt đường, tuyệt đối không nghiêng khung */
+@keyframes bike-road-ride {
+    0%, 100% {
+        transform: translateX(0px) translateY(0px);
+    }
+    25% {
+        transform: translateX(-14px) translateY(-1.5px);
+    }
+    50% {
+        transform: translateX(-6px) translateY(1px);
+    }
+    75% {
+        transform: translateX(10px) translateY(-1.5px);
+    }
+}
+
+@keyframes speed-streak-right {
+    0% {
+        transform: translateX(0);
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(820px);
+        opacity: 0;
+    }
+}
+
+@keyframes shadow-pulse {
+    0%, 100% {
+        transform: translateX(0px) scaleX(1);
+        opacity: 0.85;
+    }
+    25% {
+        transform: translateX(-14px) scaleX(0.96);
+        opacity: 0.75;
+    }
+    75% {
+        transform: translateX(10px) scaleX(1.02);
+        opacity: 0.9;
+    }
+}
+
+/* Auth Split Card UI (Login & Register) */
+.auth-section {
+    padding-top: 44px;
+    padding-bottom: 64px;
+}
+
+.auth-shell {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    background: #ffffff;
+    border: 1px solid var(--line);
+    border-radius: 26px;
+    overflow: hidden;
+    box-shadow: 0 24px 60px rgba(23, 37, 30, 0.08);
+}
+
+.auth-showcase {
+    background: radial-gradient(ellipse at 90% 10%, #466948 0%, transparent 58%), #16291f;
+    color: #ffffff;
+    padding: 44px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 28px;
+    position: relative;
+    overflow: hidden;
+}
+
+.auth-showcase::after {
+    content: "";
+    position: absolute;
+    width: 360px;
+    height: 360px;
+    border-radius: 50%;
+    border: 1px solid rgba(207, 237, 139, 0.14);
+    right: -140px;
+    bottom: -140px;
+    pointer-events: none;
+}
+
+.auth-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(207, 237, 139, 0.14);
+    border: 1px solid rgba(207, 237, 139, 0.3);
+    color: var(--green);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+}
+
+.auth-showcase h1 {
+    font-size: clamp(34px, 3.6vw, 48px);
+    line-height: 1.12;
+    letter-spacing: -1.6px;
+    margin: 18px 0 12px;
+}
+
+.auth-showcase p {
+    color: #c9d7cb;
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.auth-bike-card {
+    background: #f5f7f2;
+    color: var(--ink);
+    border-radius: 18px;
+    padding: 18px 20px 14px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.24);
+    position: relative;
+    z-index: 1;
+}
+
+.auth-bike-card img {
+    width: 100%;
+    height: 205px;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+    transition: transform 0.35s ease;
+}
+
+.auth-bike-card:hover img {
+    transform: scale(1.03);
+}
+
+.auth-bike-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    border-top: 1px solid #dde4d8;
+    margin-top: 10px;
+    padding-top: 10px;
+    font-size: 11px;
+    letter-spacing: 1.2px;
+}
+
+.auth-bike-meta span {
+    color: var(--muted);
+    font-weight: 600;
+}
+
+.auth-bike-meta strong {
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.auth-perks {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 13.5px;
+    color: #dce7de;
+    position: relative;
+    z-index: 1;
+}
+
+.auth-perks li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.auth-perks li span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: rgba(207, 237, 139, 0.18);
+    color: var(--green);
+    font-size: 12px;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.auth-panel {
+    padding: 44px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #ffffff;
+}
+
+.auth-tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    padding: 5px;
+    background: #eff3ec;
+    border-radius: 12px;
+    margin-bottom: 26px;
+}
+
+.auth-tab {
+    text-align: center;
+    padding: 10px 16px;
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: 650;
+    color: var(--muted);
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.auth-tab:hover {
+    text-decoration: none;
+    color: var(--ink);
+}
+
+.auth-tab.active {
+    background: #ffffff;
+    color: var(--ink);
+    box-shadow: 0 2px 8px rgba(23, 37, 30, 0.08);
+}
+
+.auth-header {
+    margin-bottom: 22px;
+}
+
+.auth-header h2 {
+    font-size: 28px;
+    margin: 0 0 6px;
+    letter-spacing: -0.6px;
+}
+
+.auth-header p {
+    margin: 0;
+    font-size: 14.5px;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.auth-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.auth-field {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.auth-label-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.auth-field label {
+    font-weight: 650;
+    font-size: 13.5px;
+    color: var(--ink);
+}
+
+.auth-rule-tag {
+    font-size: 11.5px;
+    color: #4f6456;
+    background: #eef3ea;
+    padding: 2px 8px;
+    border-radius: 999px;
+}
+
+.auth-input-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.auth-input-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    color: #6b7c70;
+    pointer-events: none;
+    z-index: 2;
+    transition: color 0.2s;
+}
+
+.auth-input-wrap input {
+    width: 100%;
+    padding: 12.5px 14px 12.5px 42px;
+    border: 1.5px solid #cbd6c6;
+    border-radius: 10px;
+    font: inherit;
+    font-size: 14.5px;
+    color: var(--ink);
+    background: #fbfcfa;
+    transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.auth-input-wrap input::placeholder {
+    color: #95a399;
+}
+
+.auth-input-wrap input:hover {
+    border-color: #aebfa8;
+}
+
+.auth-input-wrap input:focus {
+    outline: none;
+    background: #ffffff;
+    border-color: #2f5e3d;
+    box-shadow: 0 0 0 4px rgba(88, 139, 40, 0.14);
+}
+
+.auth-input-wrap:focus-within .auth-input-icon {
+    color: #176143;
+}
+
+.auth-hint {
+    font-size: 12.5px;
+    color: var(--muted);
+    line-height: 1.45;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+.validation.validation-summary-errors {
+    background: #fff2f0;
+    border: 1px solid #f3c2bc;
+    border-left: 4px solid #c93b2b;
+    color: #962317;
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-size: 13.5px;
+}
+
+.validation.validation-summary-errors ul {
+    margin: 0;
+    padding-left: 18px;
+}
+
+.field-error,
+.field-validation-error {
+    color: #b4291b;
+    font-size: 12.5px;
+    font-weight: 500;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.auth-submit {
+    width: 100%;
+    justify-content: space-between;
+    padding: 15px 22px;
+    border-radius: 11px;
+    font-size: 15.5px;
+    margin-top: 4px;
+    box-shadow: 0 8px 20px rgba(154, 198, 70, 0.28);
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+
+.auth-submit:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 12px 24px rgba(154, 198, 70, 0.36);
+}
+
+.auth-footer {
+    margin-top: 6px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 14px;
+}
+
+.auth-footer p {
+    margin: 0;
+    color: var(--muted);
+}
+
+.auth-footer p a {
+    color: #176143;
+    font-weight: 700;
+}
+
+.auth-back {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+@media (max-width: 960px) {
+    .auth-shell {
+        grid-template-columns: 1fr;
+    }
+
+    .auth-showcase {
+        padding: 32px 28px;
+    }
+
+    .auth-bike-card img {
+        height: 180px;
+    }
+
+    .auth-panel {
+        padding: 34px 28px;
+    }
+}
+
+@media (max-width: 640px) {
+    .auth-section {
+        padding-top: 24px;
+        padding-bottom: 40px;
+    }
+
+    .auth-row {
+        grid-template-columns: 1fr;
+    }
+
+    .auth-panel {
+        padding: 26px 20px;
+    }
+
+    .auth-showcase {
+        padding: 26px 20px;
+    }
+
+    .auth-footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* Warranty Selection Cards & Invoice UI */
+.warranty-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.warranty-card {
+    border: 1.5px solid var(--line);
+    border-radius: 14px;
+    background: #fbfcfa;
+    overflow: hidden;
+    transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.warranty-card:hover {
+    border-color: #aebfa8;
+}
+
+.warranty-card.is-selected {
+    border-color: #2f5e3d;
+    background: #ffffff;
+    box-shadow: 0 10px 28px rgba(23, 97, 67, 0.08);
+}
+
+.warranty-head {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 18px 20px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.warranty-head input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-top: 3px;
+    accent-color: #176143;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+.warranty-head-main {
+    flex: 1;
+    min-width: 0;
+}
+
+.warranty-title-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.warranty-title-row strong {
+    font-size: 16px;
+}
+
+.warranty-badge {
+    display: inline-block;
+    font-size: 10.5px;
+    font-weight: 750;
+    letter-spacing: 0.8px;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: #e3efce;
+    color: #1c3b27;
+}
+
+.warranty-summary {
+    margin: 6px 0 8px;
+    font-size: 13.8px;
+    color: var(--muted);
+    font-weight: 400;
+}
+
+.warranty-meta-tags {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    font-size: 12.5px;
+    color: #4a5d50;
+}
+
+.warranty-price {
+    font-weight: 800;
+    font-size: 16px;
+    color: #176143;
+    white-space: nowrap;
+}
+
+.warranty-details {
+    padding: 0 20px 18px 54px;
+}
+
+.warranty-policy-box {
+    background: #f3f7ee;
+    border: 1px solid #d5e2c8;
+    border-left: 4px solid #4c702d;
+    border-radius: 10px;
+    padding: 16px 18px;
+    font-size: 13.8px;
+}
+
+.warranty-policy-box h4 {
+    margin: 0 0 6px;
+    font-size: 14px;
+    color: #17251e;
+}
+
+.warranty-policy-box p {
+    margin: 0 0 12px;
+    color: #38493e;
+}
+
+.warranty-benefits {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.warranty-benefits li {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    font-size: 13.5px;
+}
+
+.warranty-benefits li span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #cfed8b;
+    color: #17251e;
+    font-size: 11px;
+    font-weight: 800;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.warranty-condition {
+    font-size: 12.5px;
+    color: var(--muted);
+    padding-top: 10px;
+    border-top: 1px dashed #c8d6ba;
+}
+
+.invoice-sheet {
+    padding: 36px;
+}
+
+.invoice-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    padding-bottom: 22px;
+    border-bottom: 2px solid var(--ink);
+}
+
+.invoice-customer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 14px;
+}
+
+.invoice-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14.5px;
+}
+
+.invoice-table th {
+    text-align: left;
+    padding: 12px;
+    background: #eff3e8;
+    font-size: 12px;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+}
+
+.invoice-table td {
+    padding: 14px 12px;
+    border-bottom: 1px solid var(--line);
+}
+
+.invoice-totals {
+    margin-top: 24px;
+    padding-top: 18px;
+    border-top: 2px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 14.5px;
+}
+
+.invoice-totals > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.invoice-grand {
+    font-size: 19px;
+    padding: 12px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+
+.qr-box {
+    background: #f5f8f1;
+    border: 1px solid #d5e0ca;
+    border-radius: 14px;
+    padding: 16px;
+    text-align: center;
+}
+
+@media (max-width: 700px) {
+    .warranty-details {
+        padding: 0 14px 14px 14px;
+    }
+    .invoice-customer-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media print {
+    .header, .footer, .actions, aside.panel {
+        display: none !important;
+    }
+    .checkout-grid {
+        grid-template-columns: 1fr !important;
+    }
+    .invoice-sheet {
+        border: 0 !important;
+        padding: 0 !important;
+    }
+}

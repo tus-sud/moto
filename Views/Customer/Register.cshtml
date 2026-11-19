@@ -1,0 +1,142 @@
+@model MotoShopWeb.ViewModels.CustomerRegister
+@{
+    ViewData["Title"] = "Tạo tài khoản";
+}
+<section class="wrap section auth-section">
+    <div class="auth-shell">
+        <div class="auth-showcase">
+            <div class="auth-showcase-top">
+                <span class="auth-badge">GIA NHẬP HÀNH TRÌNH</span>
+                <h1>Chiếc xe mới.<br /><em>Khởi đầu mới.</em></h1>
+                <p>Tạo tài khoản miễn phí để lưu thông tin đơn mua xe và theo dõi phản hồi trực tiếp từ đội ngũ
+                    MotoShopABG.</p>
+            </div>
+            <div class="auth-bike-card">
+                <img src="/images/catalog-abg/cb1000-hornet-1.jpg" alt="Honda CB1000 Hornet" />
+                <div class="auth-bike-meta">
+                    <span>NEW ARRIVAL</span>
+                    <strong>HONDA CB1000 HORNET</strong>
+                </div>
+            </div>
+            <ul class="auth-perks">
+                <li><span>✓</span> Quản lý danh sách đơn yêu cầu mua xe</li>
+                <li><span>✓</span> Nhận tư vấn giá lăn bánh nhanh hơn</li>
+                <li><span>✓</span> Miễn phí trọn đời cho thành viên</li>
+            </ul>
+        </div>
+        <div class="auth-panel">
+            <div class="auth-tabs" role="navigation" aria-label="Chuyển đổi đăng nhập và đăng ký">
+                <a class="auth-tab" asp-action="Login">Đăng nhập</a>
+                <a class="auth-tab active" asp-action="Register" aria-current="page">Tạo tài khoản</a>
+            </div>
+            <div class="auth-header">
+                <h2>Tạo tài khoản khách hàng</h2>
+                <p class="muted">Điền thông tin cá nhân bên dưới để kích hoạt tài khoản</p>
+            </div>
+            <form method="post" class="auth-form">
+                <div asp-validation-summary="All" class="validation" role="alert"></div>
+                <div class="auth-row">
+                    <div class="auth-field">
+                        <label asp-for="Name">Họ và tên</label>
+                        <div class="auth-input-wrap">
+                            <svg class="auth-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                            <input asp-for="Name" placeholder="Nguyễn Văn A" autocomplete="name" required
+                                maxlength="100" autofocus />
+                        </div>
+                        <span asp-validation-for="Name" class="field-error"></span>
+                    </div>
+                    <div class="auth-field">
+                        <label asp-for="Email">Địa chỉ Email</label>
+                        <div class="auth-input-wrap">
+                            <svg class="auth-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                            </svg>
+                            <input asp-for="Email" type="email" placeholder="ban@example.com" autocomplete="email"
+                                required maxlength="150" />
+                        </div>
+                        <span asp-validation-for="Email" class="field-error"></span>
+                    </div>
+                </div>
+                <div class="auth-row">
+                    <div class="auth-field">
+                        <div class="auth-label-row">
+                            <label asp-for="Username">Tên đăng nhập</label>
+                            <span class="auth-rule-tag">Tối đa 50 ký tự</span>
+                        </div>
+                        <div class="auth-input-wrap">
+                            <svg class="auth-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="4"></circle>
+                                <path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8"></path>
+                            </svg>
+                            <input asp-for="Username" placeholder="Nhập tên đăng nhập tùy chọn" autocomplete="username" required
+                                maxlength="50" />
+                        </div>
+                        <span asp-validation-for="Username" class="field-error"></span>
+                    </div>
+                    <div class="auth-field">
+                        <div class="auth-label-row">
+                            <label asp-for="Phone">Số điện thoại</label>
+                            <span class="auth-rule-tag">Tùy chọn</span>
+                        </div>
+                        <div class="auth-input-wrap">
+                            <svg class="auth-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.58 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                            <input asp-for="Phone" placeholder="09xx xxx xxx" autocomplete="tel" maxlength="15" />
+                        </div>
+                        <span asp-validation-for="Phone" class="field-error"></span>
+                    </div>
+                </div>
+                <div class="auth-row">
+                    <div class="auth-field">
+                        <div class="auth-label-row">
+                            <label asp-for="Password">Mật khẩu</label>
+                            <span class="auth-rule-tag">Tối thiểu 6 ký tự</span>
+                        </div>
+                        <div class="auth-input-wrap">
+                            <svg class="auth-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                            <input asp-for="Password" type="password" value="" placeholder="Ít nhất 6 ký tự"
+                                autocomplete="new-password" required minlength="6" maxlength="128" />
+                        </div>
+                        <span asp-validation-for="Password" class="field-error"></span>
+                    </div>
+                    <div class="auth-field">
+                        <label asp-for="ConfirmPassword">Nhập lại mật khẩu</label>
+                        <div class="auth-input-wrap">
+                            <svg class="auth-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                <path d="m9 12 2 2 4-4"></path>
+                            </svg>
+                            <input asp-for="ConfirmPassword" type="password" value="" placeholder="Xác nhận mật khẩu"
+                                autocomplete="new-password" required maxlength="128" />
+                        </div>
+                        <span asp-validation-for="ConfirmPassword" class="field-error"></span>
+                    </div>
+                </div>
+                <small class="auth-hint">Mẹo: Nhấn giữ biểu tượng con mắt ở bên phải ô mật khẩu để kiểm tra lại ký tự
+                    vừa nhập.</small>
+                <button class="button auth-submit" type="submit">
+                    <span>Hoàn tất đăng ký tài khoản</span>
+                    <span aria-hidden="true">→</span>
+                </button>
+                <div class="auth-footer">
+                    <p>Đã có tài khoản? <a asp-action="Login">Đăng nhập ngay</a></p>
+                    <a class="auth-back" asp-controller="Home" asp-action="Vehicles">← Tiếp tục xem danh mục xe</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,10 @@
+@model CustomerForm
+@{ ViewData["Title"] = "Quản lý khách hàng"; }
+<div class="heading"><div><h1>Quản lý khách hàng</h1><p>Tài khoản: @(Model.TenDangNhap ?? "Chưa có tài khoản đăng nhập")</p></div></div>
+<form asp-action="CustomerEdit" method="post" class="panel"><div asp-validation-summary="All"></div><input asp-for="Id" type="hidden" /><div class="form-grid">
+<div class="field"><label asp-for="HoTen">Họ tên</label><input asp-for="HoTen" /><span asp-validation-for="HoTen"></span></div>
+<div class="field"><label asp-for="Email">Email</label><input asp-for="Email" type="email" /><span asp-validation-for="Email"></span></div>
+<div class="field"><label asp-for="SoDienThoai">Số điện thoại</label><input asp-for="SoDienThoai" /><span asp-validation-for="SoDienThoai"></span></div>
+<div class="field"><label asp-for="DiaChi">Địa chỉ</label><input asp-for="DiaChi" /><span asp-validation-for="DiaChi"></span></div>
+@if (Model.TenDangNhap is not null) { <div class="check wide"><input asp-for="Active" /><label asp-for="Active">Mở tài khoản đăng nhập</label></div> }
+</div><div class="form-footer"><button class="btn">Lưu khách hàng</button><a class="btn secondary" asp-action="Customers">Hủy</a></div></form>

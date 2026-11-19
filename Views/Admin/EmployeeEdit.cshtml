@@ -1,0 +1,18 @@
+@model StaffForm
+@{ ViewData["Title"] = Model.Id == 0 ? "Cấp tài khoản nhân viên" : "Quản lý nhân viên"; }
+<div class="heading"><div><h1>@ViewData["Title"]</h1><p>Chức vụ “TOÀN QUYỀN” có quyền quản trị cao nhất.</p></div></div>
+<form asp-action="EmployeeEdit" method="post" class="panel"><div asp-validation-summary="All"></div><input asp-for="Id" type="hidden" /><div class="form-grid">
+<div class="field"><label asp-for="HoTen">Họ tên</label><input asp-for="HoTen" /><span asp-validation-for="HoTen"></span></div>
+<div class="field"><label asp-for="Email">Email</label><input asp-for="Email" type="email" /><span asp-validation-for="Email"></span></div>
+<div class="field"><label asp-for="SoDienThoai">Số điện thoại</label><input asp-for="SoDienThoai" /><span asp-validation-for="SoDienThoai"></span></div>
+<div class="field"><label asp-for="DiaChi">Địa chỉ</label><input asp-for="DiaChi" /><span asp-validation-for="DiaChi"></span></div>
+<div class="field"><label asp-for="MaChucVu">Chức vụ</label><select asp-for="MaChucVu" asp-items="Model.ChucVus"><option value="">Chọn...</option></select><span asp-validation-for="MaChucVu"></span></div>
+<div class="field"><label asp-for="TenDangNhap">Tên đăng nhập</label><input asp-for="TenDangNhap" /><span asp-validation-for="TenDangNhap"></span></div>
+<div class="field wide"><label asp-for="TemporaryPassword">Mật khẩu tạm</label><input asp-for="TemporaryPassword" type="password" autocomplete="new-password" /><span asp-validation-for="TemporaryPassword"></span><small>Bắt buộc khi cấp tài khoản mới. Để trống khi sửa để giữ mật khẩu cũ. Nhân viên phải đổi mật khẩu tạm khi đăng nhập.</small></div>
+<div class="check"><input asp-for="Active" /><label asp-for="Active">Mở tài khoản đăng nhập</label></div><div class="check"><input asp-for="DangLam" /><label asp-for="DangLam">Nhân viên đang làm việc</label></div>
+</div>
+@if (Model.IsSelf) { <p class="form-hint">Bạn đang sửa chính mình: giữ nguyên chức vụ và trạng thái hoạt động; để trống mật khẩu tạm.</p> }
+<h2 style="margin-top:28px">Quyền riêng của nhân viên</h2><p class="muted">Admin toàn quyền không cần đánh dấu từng quyền. Nhóm XE_XEM, XE_THEM, XE_SUA, XE_AN_HIEN đã hoạt động. Cấp Thêm/Sửa/Ẩn hiện phải kèm Xem xe. Các nhóm chức năng khác sẽ triển khai sau.</p>
+<div class="permissions">@foreach (var p in Model.Quyens) {
+<label class="permission"><input type="checkbox" name="QuyenIds" value="@p.MaQuyen" checked="@(Model.QuyenIds.Contains(p.MaQuyen))" /><span>@p.TenQuyen<small>@p.KyHieu</small></span></label>
+}</div><div class="form-footer"><button class="btn">Lưu tài khoản</button><a class="btn secondary" asp-action="Employees">Hủy</a></div></form>

@@ -1,0 +1,9 @@
+@model LoginForm
+@{ ViewData["Title"] = "Đăng nhập quản trị"; }
+<h1>Chào mừng trở lại</h1><p class="muted">Đăng nhập tài khoản nhân viên để tiếp tục.</p>
+<form asp-controller="Staff" asp-action="Login" method="post">
+<div asp-validation-summary="All"></div>
+<div class="field"><label asp-for="Username">Tên đăng nhập</label><input asp-for="Username" autocomplete="username" autofocus /></div>
+<div class="field"><label asp-for="Password">Mật khẩu</label><input asp-for="Password" type="password" autocomplete="current-password" /></div>
+<button class="btn" type="submit">Đăng nhập</button>
+</form><p class="muted" style="font-size:12px;margin-top:22px">Tài khoản do quản trị viên cấp. Liên hệ quản trị viên nếu cần cấp lại mật khẩu.</p>

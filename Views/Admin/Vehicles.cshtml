@@ -1,0 +1,10 @@
+@model PageVm<Xe>
+@{ ViewData["Title"] = "Quản lý xe"; var vi = CultureInfo.GetCultureInfo("vi-VN"); }
+<div class="heading"><div><h1>Quản lý xe</h1><p>Quản lý mẫu xe, giá bán và trạng thái hiển thị.</p></div><a class="btn" asp-action="VehicleEdit">+ Thêm xe</a></div>
+<form method="get" class="toolbar"><input name="q" value="@Model.Q" placeholder="Tìm kiếm..." aria-label="Tìm kiếm" maxlength="200" /><button class="btn" type="submit">Tìm</button><a class="btn secondary" href="@Url.Action()">Tất cả</a><span class="count">@Model.Total bản ghi</span></form>
+<div class="panel flush table-wrap"><table><thead><tr><th>Mẫu xe</th><th>Hãng / loại</th><th>Giá niêm yết</th><th>Hiển thị</th><th>Thao tác</th></tr></thead><tbody>
+@foreach (var x in Model.Items) {
+<tr><td><strong>@x.TenXe</strong><small>#@x.MaXe · @x.DungTichCc cc · @x.NamSanXuat</small></td><td>@x.MaHangNavigation.TenHang<small>@x.MaLoaiNavigation.TenLoai</small></td><td class="nowrap">@x.GiaNiemYet.ToString("N0", vi) ₫</td><td><span class="badge @(x.HienThi ? "" : "off")">@(x.HienThi ? "Đang hiện" : "Đang ẩn")</span></td><td><div class="actions"><a class="btn secondary small" asp-action="VehicleEdit" asp-route-id="@x.MaXe">Sửa</a><form asp-action="VehicleVisibility" method="post"><input type="hidden" name="id" value="@x.MaXe" /><input type="hidden" name="visible" value="@(!x.HienThi ? "true" : "false")" /><button class="btn secondary small">@(x.HienThi ? "Ẩn" : "Hiện")</button></form></div></td></tr>
+}
+@if (Model.Items.Count == 0) { <tr><td colspan="5" class="empty">Chưa có xe phù hợp. Bấm “Thêm xe” để nhập mẫu xe đầu tiên.</td></tr> }
+</tbody></table></div>@if (Model.TotalPages > 1) { <nav class="pager" aria-label="Phân trang">@if (Model.Page > 1) { <a class="btn secondary" href="@Url.Action(null, new { q = Model.Q, page = Model.Page - 1 })">Trước</a> }<span>Trang @Model.Page / @Model.TotalPages</span>@if (Model.Page < Model.TotalPages) { <a class="btn secondary" href="@Url.Action(null, new { q = Model.Q, page = Model.Page + 1 })">Sau</a> }</nav> }

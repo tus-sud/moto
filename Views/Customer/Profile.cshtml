@@ -1,0 +1,93 @@
+@model MotoShopWeb.ViewModels.CustomerProfileVm
+@{ViewData["Title"]="Hồ sơ cá nhân";}
+<section class="wrap section">
+    <p class="eyebrow">TÀI KHOẢN KHÁCH HÀNG</p>
+    <div class="section-title">
+        <h1 class="page-title" style="margin:0">Hồ sơ của @Model.Name</h1>
+        <div class="actions">
+            <a class="button" asp-controller="Orders" asp-action="Index">Đơn của tôi →</a>
+            <a class="button" style="background:#eff3e8" asp-controller="TestRide" asp-action="Index">Lịch lái thử</a>
+            <a class="button" style="background:#eff3e8" asp-controller="Wishlist" asp-action="Index">Xe yêu thích ♥</a>
+        </div>
+    </div>
+
+    <form method="post" class="checkout-grid">
+        <div class="panel auth-form">
+            <h2 style="margin-top:0">Thông tin liên hệ</h2>
+            <p class="muted" style="margin-top:-10px">Thông tin này sẽ được điền sẵn khi bạn gửi yêu cầu đặt mua xe hoặc hẹn lái thử.</p>
+            <div asp-validation-summary="All" class="validation" role="alert"></div>
+
+            <div class="auth-row">
+                <div class="auth-field">
+                    <label>Tên đăng nhập</label>
+                    <input value="@Model.Username" disabled style="padding:12px;border:1px solid #d5ded0;border-radius:10px;background:#f2f5ef;color:#5c6c61" />
+                </div>
+                <div class="auth-field">
+                    <label asp-for="Name">Họ và tên</label>
+                    <input asp-for="Name" required maxlength="100" style="padding:12px;border:1.5px solid #cbd6c6;border-radius:10px" />
+                    <span asp-validation-for="Name" class="field-error"></span>
+                </div>
+            </div>
+
+            <div class="auth-row">
+                <div class="auth-field">
+                    <label asp-for="Email">Địa chỉ Email</label>
+                    <input asp-for="Email" type="email" required maxlength="150" style="padding:12px;border:1.5px solid #cbd6c6;border-radius:10px" />
+                    <span asp-validation-for="Email" class="field-error"></span>
+                </div>
+                <div class="auth-field">
+                    <label asp-for="Phone">Số điện thoại</label>
+                    <input asp-for="Phone" placeholder="09xx xxx xxx" maxlength="15" style="padding:12px;border:1.5px solid #cbd6c6;border-radius:10px" />
+                    <span asp-validation-for="Phone" class="field-error"></span>
+                </div>
+            </div>
+
+            <div class="auth-row">
+                <div class="auth-field">
+                    <label asp-for="Address">Địa chỉ nhận xe</label>
+                    <input asp-for="Address" placeholder="Số nhà, đường, quận/huyện, tỉnh/thành phố" maxlength="255" style="padding:12px;border:1.5px solid #cbd6c6;border-radius:10px" />
+                    <span asp-validation-for="Address" class="field-error"></span>
+                </div>
+                <div class="auth-field">
+                    <label asp-for="BirthDate">Ngày sinh</label>
+                    <input asp-for="BirthDate" type="date" style="padding:12px;border:1.5px solid #cbd6c6;border-radius:10px" />
+                    <span asp-validation-for="BirthDate" class="field-error"></span>
+                </div>
+            </div>
+
+            <button class="button auth-submit" type="submit">
+                <span>Lưu thông tin hồ sơ</span>
+                <span aria-hidden="true">→</span>
+            </button>
+        </div>
+
+        <aside class="panel auth-form">
+            <h2 style="margin-top:0">Đổi mật khẩu</h2>
+            <p class="muted" style="margin-top:-10px">Để trống nếu bạn chỉ muốn cập nhật thông tin cá nhân bên trái.</p>
+
+            <div class="auth-field">
+                <label asp-for="CurrentPassword">Mật khẩu hiện tại</label>
+                <input asp-for="CurrentPassword" type="password" value="" autocomplete="current-password" style="padding:12px;border:1.5px solid #cbd6c6;border-radius:10px" />
+                <span asp-validation-for="CurrentPassword" class="field-error"></span>
+            </div>
+
+            <div class="auth-field">
+                <label asp-for="NewPassword">Mật khẩu mới (tối thiểu 6 ký tự)</label>
+                <input asp-for="NewPassword" type="password" value="" autocomplete="new-password" minlength="6" maxlength="128" style="padding:12px;border:1.5px solid #cbd6c6;border-radius:10px" />
+                <span asp-validation-for="NewPassword" class="field-error"></span>
+            </div>
+
+            <div class="auth-field">
+                <label asp-for="ConfirmNewPassword">Nhập lại mật khẩu mới</label>
+                <input asp-for="ConfirmNewPassword" type="password" value="" autocomplete="new-password" maxlength="128" style="padding:12px;border:1.5px solid #cbd6c6;border-radius:10px" />
+                <span asp-validation-for="ConfirmNewPassword" class="field-error"></span>
+            </div>
+
+            <button class="button auth-submit" type="submit">
+                <span>Cập nhật mật khẩu</span>
+                <span aria-hidden="true">→</span>
+            </button>
+        </aside>
+    </form>
+</section>
+

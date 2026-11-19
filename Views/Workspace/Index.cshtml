@@ -1,0 +1,20 @@
+@model WorkspaceHomeVm
+@{ ViewData["Title"] = "Trang làm việc"; }
+<div class="heading"><div><h1>Chào @User.Identity?.Name</h1><p>@Model.RoleTitle · Công việc được phân quyền</p></div></div>
+@if (!Model.Permissions.Contains(VehiclePermissions.View))
+{
+    <section class="panel"><h2>Chưa được cấp quyền xem xe</h2><p class="muted">Liên hệ admin để được cấp quyền phù hợp. Các công việc kho, đơn hàng và bảo hành sẽ được bổ sung sau.</p></section>
+}
+else
+{
+    <section class="panel"><h2>Danh mục xe</h2><p class="muted">Hiện có @Model.VehicleCount mẫu xe trong hệ thống, gồm cả xe đang ẩn.</p>
+    <div class="actions"><a class="btn" asp-action="Vehicles">Xem danh sách xe</a>
+    @if (Model.Permissions.Contains(VehiclePermissions.Create)) { <a class="btn secondary" asp-action="VehicleEdit">+ Thêm xe</a> }
+    </div></section>
+    <section class="panel"><h2>Quyền hiện tại của bạn</h2><ul class="list">
+    <li>Xem danh sách, tìm kiếm và chi tiết xe</li>
+    @if (Model.Permissions.Contains(VehiclePermissions.Create)) { <li>Thêm mẫu xe mới</li> }
+    @if (Model.Permissions.Contains(VehiclePermissions.Edit)) { <li>Sửa giá, thông số, màu và ảnh chính</li> }
+    @if (Model.Permissions.Contains(VehiclePermissions.Visibility)) { <li>Ẩn / hiện xe trên trang bán hàng</li> }
+    </ul><p class="muted" style="margin-top:18px">Quyền do admin quản lý. Tải lại trang khi admin thay đổi quyền của bạn.</p></section>
+}

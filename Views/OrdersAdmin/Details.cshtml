@@ -1,0 +1,8 @@
+@model MotoShopWeb.Models.DonHang
+@using MotoShopWeb.ViewModels
+@{ViewData["Title"]="Yêu cầu #"+Model.MaDonHang;}
+<a asp-action="Index">← Danh sách yêu cầu</a><h1>Yêu cầu #@Model.MaDonHang</h1><p>@OrderLabels.Name(Model.TrangThai) · @Model.NgayDat.ToString("dd/MM/yyyy HH:mm")</p>
+<div class="panel"><h2>Khách hàng</h2><p>@Model.TenNguoiNhan · @Model.SdtnguoiNhan</p><p>@Model.DiaChiGiao</p><h2>Xe đã chọn</h2>
+@foreach(var line in Model.ChiTietDonHangs){<p>@line.MauXe.MaXeNavigation.TenXe · @line.MauXe.TenMau × @line.SoLuong · @((line.DonGia*line.SoLuong).ToString("N0")) ₫</p>}<strong>Tổng ghi nhận: @Model.TongTien.ToString("N0") ₫</strong><p>Chưa xác nhận thanh toán, chưa phân bổ số khung/số máy hoặc trừ tồn kho.</p>
+@if(Model.TrangThai=="ChoXacNhan") {<form asp-action="Update" method="post"><input type="hidden" name="id" value="@Model.MaDonHang" /><button class="btn" name="next" value="DaXacNhan" type="submit">Xác nhận yêu cầu</button><button class="btn secondary" name="next" value="DaHuy" type="submit">Hủy yêu cầu</button></form>}</div>
+<div class="panel"><h2>Lịch sử xử lý</h2>@foreach(var item in Model.LichSuDonHangs.OrderByDescending(x=>x.ThoiGian)){<p><strong>@OrderLabels.Name(item.TrangThai)</strong> · @item.ThoiGian.ToString("dd/MM/yyyy HH:mm")<br />@item.GhiChu</p>}</div>

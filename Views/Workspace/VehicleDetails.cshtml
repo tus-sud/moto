@@ -1,0 +1,32 @@
+@model VehicleDetailVm
+@{
+    ViewData["Title"] = "Chi tiết xe";
+    var xe = Model.Vehicle;
+    var vi = CultureInfo.GetCultureInfo("vi-VN");
+    var photo = xe.AnhXes.OrderByDescending(a => a.LaAnhChinh).ThenBy(a => a.ThuTu).ThenBy(a => a.MaAnh).FirstOrDefault();
+    string? photoUrl = photo?.DuongDan;
+    bool validPhoto = !string.IsNullOrWhiteSpace(photoUrl) &&
+        ((photoUrl.StartsWith("/images/") && !photoUrl.Contains('\\') && !photoUrl.Contains(".."))
+        || (Uri.TryCreate(photoUrl, UriKind.Absolute, out var uri) && uri.Scheme == "https"));
+}
+<div class="heading"><div><h1>@xe.TenXe</h1><p>@xe.MaHangNavigation.TenHang · @xe.MaLoaiNavigation.TenLoai · #@xe.MaXe</p></div>
+<div class="actions"><a class="btn secondary" asp-action="Vehicles">Quay lại</a>
+@if (Model.Permissions.Contains(VehiclePermissions.Edit)) { <a class="btn" asp-action="VehicleEdit" asp-route-id="@xe.MaXe">Sửa xe</a> }
+</div></div>
+<div class="two-columns">
+<section class="panel">
+@if (validPhoto) {
+<img src="@photoUrl" alt="@xe.TenXe" style="width:100%;height:300px;object-fit:contain" onerror="this.hidden=true;this.nextElementSibling.hidden=false;" />
+<p hidden class="muted">Không tải được ảnh.</p>
+} else { <p class="empty">Chưa có ảnh xe.</p> }
+<h2 style="margin-top:22px">@xe.GiaNiemYet.ToString("N0", vi) ₫</h2>
+<span class="badge @(xe.HienThi ? "" : "off")">@(xe.HienThi ? "Đang hiện" : "Đang ẩn")</span>
+</section>
+<section class="panel"><h2>Thông số</h2><ul class="list">
+<li>Năm sản xuất: @(xe.NamSanXuat?.ToString() ?? "Chưa cập nhật")</li>
+<li>Dung tích: @(xe.DungTichCc.HasValue ? xe.DungTichCc + " cc" : "Chưa cập nhật")</li>
+<li>Công suất: @(xe.CongSuatKw.HasValue ? xe.CongSuatKw + " kW" : "Chưa cập nhật")</li>
+<li>Hộp số: @(xe.HopSo ?? "Chưa cập nhật")</li><li>Dẫn động: @(xe.KieuDanDong ?? "Chưa cập nhật")</li><li>Số chỗ: @xe.SoCho</li>
+<li>Màu: @(xe.MauXes.Count == 0 ? "Chưa cập nhật" : string.Join(", ", xe.MauXes.Select(m => m.TenMau)))</li>
+</ul></section></div>
+<section class="panel"><h2>Mô tả</h2><p style="white-space:pre-wrap">@(xe.MoTa ?? "Chưa có mô tả.")</p></section>

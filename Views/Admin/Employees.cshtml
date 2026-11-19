@@ -1,0 +1,8 @@
+@model PageVm<StaffRow>
+@{ ViewData["Title"] = "Nhân viên"; }
+<div class="heading"><div><h1>Nhân viên &amp; phân quyền</h1><p>Cấp tài khoản, chức vụ, quyền và quản lý trạng thái làm việc.</p></div><a class="btn" asp-action="EmployeeEdit">+ Cấp tài khoản</a></div>
+<form method="get" class="toolbar"><input name="q" value="@Model.Q" placeholder="Tìm kiếm..." aria-label="Tìm kiếm" maxlength="200" /><button class="btn" type="submit">Tìm</button><a class="btn secondary" href="@Url.Action()">Tất cả</a><span class="count">@Model.Total bản ghi</span></form>
+<div class="panel flush table-wrap"><table><thead><tr><th>Nhân viên</th><th>Tài khoản</th><th>Chức vụ</th><th>Trạng thái</th><th></th></tr></thead><tbody>
+@foreach (var n in Model.Items) { <tr><td><strong>@n.Name</strong><small>@n.Email</small></td><td>@(n.Username ?? "Chưa được cấp")</td><td><span class="badge @(n.IsAdmin ? "admin" : "off")">@n.Role</span></td><td><span class="badge @(n.Active ? "" : "off")">@(n.Active ? "Hoạt động" : "Không hoạt động")</span></td><td><a class="btn secondary small" asp-action="EmployeeEdit" asp-route-id="@n.Id">Quản lý</a></td></tr> }
+@if (Model.Items.Count == 0) { <tr><td colspan="5" class="empty">Không có nhân viên phù hợp.</td></tr> }
+</tbody></table></div>@if (Model.TotalPages > 1) { <nav class="pager" aria-label="Phân trang">@if (Model.Page > 1) { <a class="btn secondary" href="@Url.Action(null, new { q = Model.Q, page = Model.Page - 1 })">Trước</a> }<span>Trang @Model.Page / @Model.TotalPages</span>@if (Model.Page < Model.TotalPages) { <a class="btn secondary" href="@Url.Action(null, new { q = Model.Q, page = Model.Page + 1 })">Sau</a> }</nav> }

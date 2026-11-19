@@ -1,0 +1,78 @@
+@model MotoShopWeb.ViewModels.CustomerLogin
+@{
+    ViewData["Title"] = "Đăng nhập khách hàng";
+}
+<section class="wrap section auth-section">
+    <div class="auth-shell">
+        <div class="auth-showcase">
+            <div class="auth-showcase-top">
+                <span class="auth-badge">MOTOSHOP ABG · RIDER'S CLUB</span>
+                <h1>Hành trình<br /><em>của riêng bạn.</em></h1>
+                <p>Đăng nhập để lưu mẫu xe yêu thích, gửi yêu cầu mua xe và theo dõi trạng thái đơn hàng theo thời gian
+                    thực.</p>
+            </div>
+            <div class="auth-bike-card">
+                <img src="/images/catalog-abg/2026-z900-1.jpg" alt="Kawasaki Z900" />
+                <div class="auth-bike-meta">
+                    <span>FEATURED RIDE</span>
+                    <strong>KAWASAKI Z900 · 2026</strong>
+                </div>
+            </div>
+            <ul class="auth-perks">
+                <li><span>✓</span> Giỏ hàng &amp; yêu cầu báo giá nhanh chóng</li>
+                <li><span>✓</span> Theo dõi phản hồi từ cửa hàng</li>
+                <li><span>✓</span> Bảo mật thông tin khách hàng</li>
+            </ul>
+        </div>
+        <div class="auth-panel">
+            <div class="auth-tabs" role="navigation" aria-label="Chuyển đổi đăng nhập và đăng ký">
+                <a class="auth-tab active" asp-action="Login" asp-route-returnUrl="@Model.ReturnUrl"
+                    aria-current="page">Đăng nhập</a>
+                <a class="auth-tab" asp-action="Register">Tạo tài khoản</a>
+            </div>
+            <div class="auth-header">
+                <h2>Chào mừng trở lại</h2>
+                <p class="muted">Nhập thông tin tài khoản khách hàng để tiếp tục</p>
+            </div>
+            <form method="post" class="auth-form">
+                <div asp-validation-summary="All" class="validation" role="alert"></div>
+                <input asp-for="ReturnUrl" type="hidden" />
+                <div class="auth-field">
+                    <label asp-for="Username">Tên đăng nhập hoặc Email</label>
+                    <div class="auth-input-wrap">
+                        <svg class="auth-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                        <input asp-for="Username" placeholder="Nhập tên đăng nhập hoặc email" autocomplete="username" required
+                            maxlength="150" autofocus />
+                    </div>
+                    <span asp-validation-for="Username" class="field-error"></span>
+                </div>
+                <div class="auth-field">
+                    <label asp-for="Password">Mật khẩu</label>
+                    <div class="auth-input-wrap">
+                        <svg class="auth-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
+                        <input asp-for="Password" type="password" value="" placeholder="Nhập mật khẩu"
+                            autocomplete="current-password" required maxlength="128" />
+                    </div>
+                    <small class="auth-hint">Nhấn giữ biểu tượng con mắt để xem mật khẩu.</small>
+                    <span asp-validation-for="Password" class="field-error"></span>
+                </div>
+                <button class="button auth-submit" type="submit">
+                    <span>Đăng nhập vào tài khoản</span>
+                    <span aria-hidden="true">→</span>
+                </button>
+                <div class="auth-footer">
+                    <p>Chưa có tài khoản? <a asp-action="Register">Đăng ký ngay</a></p>
+                    <a class="auth-back" asp-controller="Home" asp-action="Vehicles">← Tiếp tục xem danh mục xe</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

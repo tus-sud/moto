@@ -1,0 +1,14 @@
+@model DashboardVm
+@{ ViewData["Title"] = "Tổng quan"; }
+<div class="heading"><div><h1>Tổng quan cửa hàng</h1><p>Dữ liệu hiện có trong hệ thống.</p></div><a class="btn" asp-action="VehicleEdit">+ Thêm xe mới</a></div>
+<div class="cards">
+<a class="stat" asp-action="Vehicles"><span>MẪU XE</span><strong>@Model.Xe</strong></a>
+<a class="stat" asp-action="Employees"><span>NHÂN VIÊN</span><strong>@Model.NhanVien</strong></a>
+<a class="stat" asp-action="Customers"><span>KHÁCH HÀNG</span><strong>@Model.KhachHang</strong></a>
+<div class="stat"><span>ĐƠN CHỜ XÁC NHẬN</span><strong>@Model.DonChoXuLy</strong></div>
+</div>
+<div class="panel flush"><div class="panel-head"><h2>Hoạt động gần đây</h2><a asp-action="Activity">Xem tất cả →</a></div>
+<div class="table-wrap"><table><thead><tr><th>Thời gian</th><th>Người thực hiện</th><th>Hành động</th><th>Chi tiết</th></tr></thead><tbody>
+@foreach (var log in Model.Recent) { <tr><td class="nowrap">@log.ThoiGian.ToString("dd/MM/yyyy HH:mm:ss")</td><td>@(log.MaNvNavigation?.HoTen ?? "Hệ thống / chưa xác định")</td><td><span class="badge">@log.HanhDong</span></td><td class="detail">@log.ChiTiet</td></tr> }
+@if (Model.Recent.Count == 0) { <tr><td colspan="4" class="empty">Chưa có hoạt động được ghi nhận.</td></tr> }
+</tbody></table></div></div>

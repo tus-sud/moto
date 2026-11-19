@@ -1,0 +1,85 @@
+@model MotoShopWeb.ViewModels.StoreDetail
+@using System.Globalization
+@{ ViewData["Title"] = Model.Name; }
+<section class="wrap section"><a asp-action="Vehicles">← Trở về danh sách xe</a><div class="detail">
+<div><img class="main-photo" src="@Model.Image" alt="@Model.Name" width="800" height="600" />
+@if (Model.Images.Count > 1) { <div class="gallery">@foreach (var photo in Model.Images) { <button type="button" class="thumbnail" data-photo="@photo" aria-label="Xem ảnh @Model.Name"><img src="@photo" alt="Hình ảnh @Model.Name" loading="lazy" width="400" height="300" /></button> }</div> }
+</div><div><p class="eyebrow">@Model.Brand / @Model.Category</p><h1 class="page-title">@Model.Name</h1><p class="detail-price">@Model.Price.ToString("N0", CultureInfo.GetCultureInfo("vi-VN")) ₫</p><p class="muted">Giá niêm yết</p>
+<dl><dt>Dung tích</dt><dd>@(Model.Engine.HasValue ? $"{Model.Engine} cc" : "Đang cập nhật")</dd><dt>Năm sản xuất</dt><dd>@(Model.Year?.ToString() ?? "Đang cập nhật")</dd><dt>Công suất</dt><dd>@(Model.Power.HasValue ? $"{Model.Power} kW" : "Đang cập nhật")</dd><dt>Hộp số</dt><dd>@(Model.Transmission ?? "Đang cập nhật")</dd><dt>Màu xe</dt><dd>@(Model.Colors.Count > 0 ? string.Join(", ", Model.Colors) : "Đang cập nhật")</dd></dl>
+@if(Model.ColorOptions.Count>0){<form asp-controller="Cart" asp-action="Add" method="post" class="purchase-box"><label for="colorId">Chọn màu xe</label><select name="colorId" id="colorId">@foreach(var color in Model.ColorOptions){<option value="@color.Id">@color.Name</option>}</select><button class="button" type="submit">Thêm vào giỏ xe +</button><small>Cửa hàng sẽ xác nhận màu thực tế, tồn kho và giá chốt.</small></form>}
+else{<p class="notice">Màu xe đang cập nhật. Mẫu này chưa nhận yêu cầu mua trực tuyến.</p>}
+<h2>Thông tin mẫu xe</h2><p class="description">@(string.IsNullOrWhiteSpace(Model.Description) ? "Thông tin chi tiết đang được cập nhật." : Model.Description)</p>
+<div class="actions" style="margin-top:20px">
+    <form asp-controller="Wishlist" asp-action="Toggle" method="post" style="margin:0">
+        <input type="hidden" name="bikeId" value="@Model.Id" />
+        <button class="button" type="submit" style="background:#eff3e8;border:1px solid #cbd6c6">♥ Lưu xe yêu thích</button>
+    </form>
+    <a class="button" asp-action="Vehicles">Khám phá các mẫu xe khác →</a>
+</div>
+</div></div>
+
+<div class="checkout-grid" style="margin-top:50px">
+    <div class="panel">
+        <p class="eyebrow">TRẢI NGHIỆM THỰC TẾ</p>
+        <h2 style="margin-top:6px">Đặt lịch lái thử @Model.Name</h2>
+        <p class="muted">Chọn thời gian thuận tiện để trải nghiệm thực tế mẫu xe tại showroom MotoShopABG.</p>
+        <form asp-controller="TestRide" asp-action="Book" method="post" class="form-stack">
+            <input type="hidden" name="bikeId" value="@Model.Id" />
+            <label for="appointmentDate">Ngày &amp; giờ hẹn lái thử</label>
+            <input type="datetime-local" id="appointmentDate" name="appointmentDate" value="@DateTime.Now.AddDays(1).ToString("yyyy-MM-ddTHH:00")" required />
+            <label for="note">Ghi chú thêm (tùy chọn)</label>
+            <input type="text" id="note" name="note" placeholder="Ví dụ: Muốn tư vấn thêm trả góp, đi cùng 1 người..." maxlength="500" />
+            <button class="button" type="submit">Đăng ký lái thử →</button>
+        </form>
+    </div>
+
+    <div class="panel">
+        <p class="eyebrow">ĐÁNH GIÁ KHÁCH HÀNG</p>
+        <h2 style="margin-top:6px">
+            Nhận xét mẫu xe
+            @if (Model.Reviews.Count > 0)
+            {
+                <span class="badge" style="font-size:15px;vertical-align:middle;margin-left:8px">★ @Model.AverageRating / 5 (@Model.Reviews.Count)</span>
+            }
+        </h2>
+        <form asp-controller="Wishlist" asp-action="AddReview" method="post" class="form-stack" style="margin-bottom:24px">
+            <input type="hidden" name="bikeId" value="@Model.Id" />
+            <label for="rating">Chấm điểm trải nghiệm</label>
+            <select id="rating" name="rating">
+                <option value="5">★★★★★ — 5 sao (Tuyệt vời)</option>
+                <option value="4">★★★★☆ — 4 sao (Rất tốt)</option>
+                <option value="3">★★★☆☆ — 3 sao (Khá ổn)</option>
+                <option value="2">★★☆☆☆ — 2 sao (Cần cải thiện)</option>
+                <option value="1">★☆☆☆☆ — 1 sao (Chưa hài lòng)</option>
+            </select>
+            <label for="comment">Nhận xét của bạn</label>
+            <textarea id="comment" name="comment" rows="3" maxlength="1000" placeholder="Chia sẻ cảm nhận về kiểu dáng, động cơ hoặc trải nghiệm tại cửa hàng..."></textarea>
+            <button class="button" type="submit">Gửi đánh giá →</button>
+        </form>
+
+        @if (Model.Reviews.Count == 0)
+        {
+            <p class="muted">Chưa có đánh giá nào cho mẫu xe này. Hãy là người đầu tiên nhận xét!</p>
+        }
+        else
+        {
+            <div style="display:flex;flex-direction:column;gap:14px;border-top:1px solid var(--line);padding-top:16px">
+                @foreach (var r in Model.Reviews)
+                {
+                    <div style="border-bottom:1px solid var(--line);padding-bottom:12px">
+                        <div style="display:flex;justify-content:space-between;align-items:center">
+                            <strong>@r.CustomerName</strong>
+                            <span style="color:#4c702d;font-weight:700">@(new string('★', r.Rating))@(new string('☆', 5 - r.Rating))</span>
+                        </div>
+                        <small class="muted">@r.CreatedAt.ToString("dd/MM/yyyy HH:mm")</small>
+                        @if (!string.IsNullOrWhiteSpace(r.Comment))
+                        {
+                            <p style="margin:6px 0 0">@r.Comment</p>
+                        }
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</div>
+</section>

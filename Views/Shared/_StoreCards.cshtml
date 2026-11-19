@@ -1,0 +1,18 @@
+@model MotoShopWeb.ViewModels.StoreList
+@using System.Globalization
+@if (Model.Bikes.Count == 0)
+{
+    <div class="empty"><h3>Chưa có xe phù hợp</h3><p>Danh mục đang được cập nhật. Hãy quay lại sau hoặc thử từ khóa khác.</p><a asp-controller="Home" asp-action="Vehicles">Xem toàn bộ danh mục →</a></div>
+}
+else
+{
+<div class="grid">
+@foreach (var bike in Model.Bikes)
+{
+<article class="bike"><a class="photo" asp-controller="Home" asp-action="Details" asp-route-id="@bike.Id"><img src="@bike.Image" alt="@bike.Name" loading="lazy" width="640" height="420" /><span>@bike.Category</span></a>
+<div class="bike-body"><p class="eyebrow">@bike.Brand</p><h3><a asp-controller="Home" asp-action="Details" asp-route-id="@bike.Id">@bike.Name</a></h3>
+<p class="spec">@(bike.Engine.HasValue ? $"{bike.Engine} cc" : "Dung tích đang cập nhật") · @(bike.Year?.ToString() ?? "Năm đang cập nhật")</p>
+<div class="price"><strong>@bike.Price.ToString("N0", CultureInfo.GetCultureInfo("vi-VN")) ₫</strong><a asp-controller="Home" asp-action="Details" asp-route-id="@bike.Id" aria-label="Xem chi tiết @bike.Name">↗</a></div></div></article>
+}
+</div>
+}

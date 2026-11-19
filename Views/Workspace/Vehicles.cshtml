@@ -1,0 +1,31 @@
+@model WorkspaceVehiclesVm
+@{ ViewData["Title"] = "Danh sách xe"; var data = Model.Results; var vi = CultureInfo.GetCultureInfo("vi-VN"); }
+<div class="heading"><div><h1>Danh sách xe</h1><p>Xem và thao tác theo quyền được cấp.</p></div>
+@if (Model.Permissions.Contains(VehiclePermissions.Create)) { <a class="btn" asp-action="VehicleEdit">+ Thêm xe</a> }
+</div>
+<form method="get" class="toolbar"><input name="q" value="@data.Q" maxlength="200" placeholder="Tìm tên xe hoặc hãng..." aria-label="Tìm xe" /><button class="btn">Tìm</button><a class="btn secondary" asp-action="Vehicles">Tất cả</a><span class="count">@data.Total mẫu xe</span></form>
+<div class="panel flush table-wrap"><table><thead><tr><th>Mẫu xe</th><th>Hãng / loại</th><th>Giá niêm yết</th><th>Hiển thị</th><th>Thao tác</th></tr></thead><tbody>
+@foreach (var xe in data.Items)
+{
+    <tr><td><strong>@xe.TenXe</strong><small>#@xe.MaXe · @xe.DungTichCc cc · @xe.NamSanXuat</small></td>
+    <td>@xe.MaHangNavigation.TenHang<small>@xe.MaLoaiNavigation.TenLoai</small></td>
+    <td class="nowrap">@xe.GiaNiemYet.ToString("N0", vi) ₫</td>
+    <td><span class="badge @(xe.HienThi ? "" : "off")">@(xe.HienThi ? "Đang hiện" : "Đang ẩn")</span></td>
+    <td><div class="actions"><a class="btn secondary small" asp-action="VehicleDetails" asp-route-id="@xe.MaXe">Chi tiết</a>
+    @if (Model.Permissions.Contains(VehiclePermissions.Edit)) { <a class="btn secondary small" asp-action="VehicleEdit" asp-route-id="@xe.MaXe">Sửa</a> }
+    @if (Model.Permissions.Contains(VehiclePermissions.Visibility))
+    {
+        <form asp-action="VehicleVisibility" method="post"><input type="hidden" name="id" value="@xe.MaXe" /><input type="hidden" name="visible" value="@(!xe.HienThi ? "true" : "false")" /><button class="btn secondary small">@(xe.HienThi ? "Ẩn" : "Hiện")</button></form>
+    }
+    </div></td></tr>
+}
+@if (data.Items.Count == 0) { <tr><td colspan="5" class="empty">Không có xe phù hợp.</td></tr> }
+</tbody></table></div>
+@if (data.TotalPages > 1)
+{
+    <nav class="pager" aria-label="Phân trang">
+    @if (data.Page > 1) { <a class="btn secondary" asp-action="Vehicles" asp-route-q="@data.Q" asp-route-page="@(data.Page - 1)">Trước</a> }
+    <span>Trang @data.Page / @data.TotalPages</span>
+    @if (data.Page < data.TotalPages) { <a class="btn secondary" asp-action="Vehicles" asp-route-q="@data.Q" asp-route-page="@(data.Page + 1)">Sau</a> }
+    </nav>
+}

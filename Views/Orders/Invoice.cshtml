@@ -1,0 +1,199 @@
+@model MotoShopWeb.ViewModels.OrderInvoiceVm
+@using MotoShopWeb.ViewModels
+@{
+    ViewData["Title"] = "Thanh toán & Hóa đơn " + Model.InvoiceNumber;
+    var payNow = Model.Payment?.SoTien ?? (Model.PaymentPlan == "DatCoc" ? Math.Min(10000000m, Model.GrandTotal) : Model.PaymentPlan == "ThanhToanDu" ? Model.GrandTotal : 0m);
+    var remaining = Math.Max(0m, Model.GrandTotal - payNow);
+    var isPaidConfirmed = Model.Payment?.TrangThai == "DaXacNhanTT";
+    var planLabel = Model.PaymentPlan switch
+    {
+        "DatCoc" => "Đặt cọc giữ xe (10.000.000 ₫)",
+        "ThanhToanDu" => "Thanh toán 100% giá trị hóa đơn",
+        "TaiShowroom" => "Thanh toán trực tiếp tại Showroom khi nhận xe",
+        _ => Model.PaymentPlan
+    };
+}
+<section class="wrap section">
+    <p class="eyebrow">01 CHỌN XE &amp; MÀU ✓ &nbsp;/&nbsp; 02 THÔNG TIN &amp; BẢO HÀNH ✓ &nbsp;/&nbsp; <strong>03 THANH TOÁN &amp; HÓA ĐƠN</strong></p>
+
+    <div class="section-title" style="margin-top:10px">
+        <div>
+            <h1 class="page-title" style="margin:0">Hóa đơn &amp; Chứng nhận Bảo hành</h1>
+            <p class="muted" style="margin:6px 0 0">Mã hóa đơn: <strong>@Model.InvoiceNumber</strong> · Ngày lập: @Model.Order.NgayDat.ToString("dd/MM/yyyy HH:mm")</p>
+        </div>
+        <div class="actions">
+            <button type="button" class="button" style="background:#eff3e8" onclick="window.print()">🖨 In Hóa đơn / Lưu PDF</button>
+            <a class="button" asp-action="Details" asp-route-id="@Model.Order.MaDonHang">Theo dõi tiến trình đơn →</a>
+        </div>
+    </div>
+
+    <div class="checkout-grid">
+        <div class="panel invoice-sheet">
+            <div class="invoice-head">
+                <div>
+                    <div class="logo">MOTO<span>SHOP</span><b>ABG</b></div>
+                    <p class="muted" style="margin:6px 0 0;font-size:13px">Showroom Mô tô Phân khối lớn Chính hãng · Hotline: 1900 6868</p>
+                </div>
+                <div style="text-align:right">
+                    <span class="badge">@OrderLabels.Name(Model.Order.TrangThai)</span>
+                    <div style="font-weight:800;font-size:18px;margin-top:6px">@Model.InvoiceNumber</div>
+                </div>
+            </div>
+
+            <div class="invoice-customer-grid">
+                <div>
+                    <span class="eyebrow">KHÁCH HÀNG NHẬN XE</span>
+                    <h3 style="margin:4px 0">@Model.Order.TenNguoiNhan</h3>
+                    <p style="margin:2px 0">SĐT: <strong>@Model.Order.SdtnguoiNhan</strong></p>
+                    <p style="margin:2px 0">Địa chỉ: @Model.Order.DiaChiGiao</p>
+                    @if (!string.IsNullOrWhiteSpace(Model.CustomerNote))
+                    {
+                        <p class="muted" style="margin:6px 0 0;font-size:13px">Ghi chú: @Model.CustomerNote</p>
+                    }
+                </div>
+                <div>
+                    <span class="eyebrow">THÔNG TIN THANH TOÁN</span>
+                    <p style="margin:6px 0 2px">Hình thức: <strong>@planLabel</strong></p>
+                    <p style="margin:2px 0">Phương thức: <strong>@Model.PaymentMethod</strong></p>
+                    <p style="margin:2px 0">Mã đối soát: <code>@(Model.Payment?.MaGiaoDich ?? $"ABG-{Model.Order.MaDonHang:D4}")</code></p>
+                    <p style="margin:6px 0 0">
+                        Trạng thái TT:
+                        @if (isPaidConfirmed)
+                        {
+                            <strong style="color:#176143">✓ Đã xác nhận thanh toán</strong>
+                        }
+                        else if (Model.PaymentPlan == "TaiShowroom")
+                        {
+                            <strong>Thanh toán khi nhận xe tại Showroom</strong>
+                        }
+                        else
+                        {
+                            <strong style="color:#b25900">Đang chờ xác nhận chuyển khoản</strong>
+                        }
+                    </p>
+                </div>
+            </div>
+
+            <h3 style="margin:24px 0 12px">1. Chi tiết xe đặt mua</h3>
+            <table class="invoice-table">
+                <thead>
+                    <tr>
+                        <th>Mẫu xe &amp; Phiên bản màu</th>
+                        <th style="text-align:center">SL</th>
+                        <th style="text-align:right">Đơn giá</th>
+                        <th style="text-align:right">Thành tiền</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var line in Model.Order.ChiTietDonHangs)
+                    {
+                        <tr>
+                            <td>
+                                <strong>@line.MauXe.MaXeNavigation.TenXe</strong>
+                                <div class="muted" style="font-size:13px">Màu sắc: @line.MauXe.TenMau</div>
+                            </td>
+                            <td style="text-align:center">@line.SoLuong</td>
+                            <td style="text-align:right">@line.DonGia.ToString("N0") ₫</td>
+                            <td style="text-align:right"><strong>@((line.DonGia * line.SoLuong).ToString("N0")) ₫</strong></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <h3 style="margin:28px 0 12px">2. Gói bảo hành &amp; Chính sách quyền lợi đi kèm</h3>
+            <div style="display:flex;flex-direction:column;gap:14px">
+                @foreach (var w in Model.SelectedWarranties)
+                {
+                    <div class="warranty-card is-selected" style="padding:18px">
+                        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap">
+                            <div>
+                                <span class="warranty-badge">@w.Code · @w.Months THÁNG / @(w.MaxKm >= 99999 ? "KHÔNG GIỚI HẠN KM" : $"{w.MaxKm:N0} KM")</span>
+                                <h4 style="margin:6px 0 4px;font-size:17px">@w.Name</h4>
+                                <p class="muted" style="margin:0;font-size:13.5px">@w.PolicyDetails</p>
+                            </div>
+                            <strong style="font-size:16px;color:#176143">
+                                @(w.Price == 0 ? "Miễn phí (0 ₫)" : w.Price.ToString("N0") + " ₫")
+                            </strong>
+                        </div>
+                        <ul class="warranty-benefits" style="margin-top:12px">
+                            @foreach (var b in w.Benefits)
+                            {
+                                <li><span>✓</span> <div>@b</div></li>
+                            }
+                        </ul>
+                    </div>
+                }
+            </div>
+
+            <div class="invoice-totals">
+                <div><span>Tạm tính giá xe:</span><strong>@Model.BikesSubtotal.ToString("N0") ₫</strong></div>
+                <div><span>Tổng phí gói bảo hành:</span><strong>@(Model.WarrantyTotal == 0 ? "0 ₫ (Miễn phí)" : Model.WarrantyTotal.ToString("N0") + " ₫")</strong></div>
+                <div class="invoice-grand"><span>TỔNG GIÁ TRỊ HÓA ĐƠN:</span><strong>@Model.GrandTotal.ToString("N0") ₫</strong></div>
+                <div><span>Số tiền thanh toán đợt 1 (@planLabel):</span><strong style="color:#176143">@payNow.ToString("N0") ₫</strong></div>
+                <div><span>Số tiền còn lại khi bàn giao xe:</span><strong>@remaining.ToString("N0") ₫</strong></div>
+            </div>
+        </div>
+
+        <aside class="panel" style="position:sticky;top:100px">
+            <p class="eyebrow">CỔNG THANH TOÁN ĐƠN HÀNG</p>
+            <h2 style="margin-top:6px">Thực hiện thanh toán</h2>
+
+            @if (isPaidConfirmed)
+            {
+                <div class="notice" style="margin-top:0">
+                    <strong>✓ Đã xác nhận thanh toán!</strong>
+                    <p style="margin:6px 0 0;font-size:14px">Hệ thống đã ghi nhận thanh toán cho hóa đơn <strong>@Model.InvoiceNumber</strong>. Nhân viên tư vấn sẽ liên hệ với bạn qua số <strong>@Model.Order.SdtnguoiNhan</strong> để hẹn lịch giao xe.</p>
+                </div>
+            }
+            else if (Model.PaymentPlan == "TaiShowroom")
+            {
+                <div class="notice" style="margin-top:0">
+                    <strong>Thanh toán tại Showroom</strong>
+                    <p style="margin:6px 0 0;font-size:14px">Bạn đã chọn thanh toán trực tiếp tại quầy khi kiểm tra và nhận xe. Vui lòng mang theo mã hóa đơn <strong>@Model.InvoiceNumber</strong> khi đến Showroom.</p>
+                </div>
+                <form asp-action="ConfirmPayment" method="post" style="margin-top:16px">
+                    <input type="hidden" name="id" value="@Model.Order.MaDonHang" />
+                    <button class="button auth-submit" type="submit">
+                        <span>Xác nhận giữ lịch hẹn tại Showroom</span>
+                        <span aria-hidden="true">✓</span>
+                    </button>
+                </form>
+            }
+            else
+            {
+                <p class="muted" style="font-size:14px">Quét mã QR hoặc chuyển khoản theo thông tin bên dưới để hoàn tất bước thanh toán:</p>
+                <div class="qr-box">
+                    <div class="qr-placeholder">
+                        <div style="font-weight:800;font-size:13px;letter-spacing:1px;color:#176143">VIETQR · MOTOSHOP ABG</div>
+                        <img src="https://img.vietqr.io/image/MB-0988886868-compact2.png?amount=@((long)payNow)&addInfo=@(Uri.EscapeDataString(Model.Payment?.MaGiaoDich ?? Model.InvoiceNumber))&accountName=CONG%20TY%20MOTOSHOP%20ABG"
+                             alt="Mã QR chuyển khoản thanh toán"
+                             style="max-width:210px;margin:10px auto;border-radius:10px;border:1px solid var(--line)"
+                             onerror="this.style.display='none'" />
+                        <div style="font-size:13px;text-align:left;background:#fff;padding:12px;border-radius:10px;border:1px solid var(--line)">
+                            <div>Ngân hàng: <strong>MB Bank (Quân Đội)</strong></div>
+                            <div>Số tài khoản: <strong>0988 886 868</strong></div>
+                            <div>Chủ TK: <strong>CONG TY MOTOSHOP ABG</strong></div>
+                            <div>Số tiền: <strong style="color:#176143">@payNow.ToString("N0") ₫</strong></div>
+                            <div>Nội dung CK: <code>@(Model.Payment?.MaGiaoDich ?? Model.InvoiceNumber)</code></div>
+                        </div>
+                    </div>
+                </div>
+
+                <form asp-action="ConfirmPayment" method="post" style="margin-top:18px">
+                    <input type="hidden" name="id" value="@Model.Order.MaDonHang" />
+                    <button class="button auth-submit" type="submit">
+                        <span>Tôi đã hoàn tất thanh toán</span>
+                        <span aria-hidden="true">✓</span>
+                    </button>
+                </form>
+            }
+
+            <div style="margin-top:18px;padding-top:14px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:8px;font-size:13.5px">
+                <a asp-action="Details" asp-route-id="@Model.Order.MaDonHang">→ Xem chi tiết &amp; tiến trình đơn #@Model.Order.MaDonHang</a>
+                <a asp-action="Index">→ Danh sách tất cả đơn của tôi</a>
+                <a asp-controller="Home" asp-action="Vehicles">← Tiếp tục khám phá xe</a>
+            </div>
+        </aside>
+    </div>
+</section>
+

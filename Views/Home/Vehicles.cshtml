@@ -1,0 +1,14 @@
+@model MotoShopWeb.ViewModels.StoreList
+@{ ViewData["Title"] = "Danh sách xe"; }
+<section class="wrap section"><p class="eyebrow">MOTOSHOP ABG / DANH MỤC</p><h1 class="page-title">Tìm chiếc xe của bạn.</h1>
+<form asp-action="Vehicles" method="get" class="search"><label for="q">Tên xe, hãng hoặc loại xe</label><input id="q" name="q" value="@Model.Query" maxlength="150" placeholder="Ví dụ: Honda, naked…" /><label for="brand">Hãng xe</label><select name="brand" id="brand"><option value="">Tất cả hãng</option>@foreach(var brand in Model.Brands){<option value="@brand" selected="@(brand==Model.BrandFilter)">@brand</option>}</select><label for="budget">Ngân sách tối đa (₫)</label><input name="budget" id="budget" type="number" min="0" max="999999999999" step="1000000" value="@Model.Budget" placeholder="Không giới hạn" /><label for="sort">Sắp xếp</label><select name="sort" id="sort"><option value="new" selected="@(Model.Sort=="new")">Mới cập nhật</option><option value="price-up" selected="@(Model.Sort=="price-up")">Giá thấp đến cao</option><option value="price-down" selected="@(Model.Sort=="price-down")">Giá cao đến thấp</option></select><button class="button" type="submit">Lọc xe →</button><a asp-action="Vehicles">Xóa bộ lọc</a></form>
+<p class="muted">@Model.Total mẫu xe phù hợp</p><partial name="_StoreCards" model="Model" />
+@if (Model.TotalPages > 1)
+{
+<nav class="pagination" aria-label="Phân trang">
+@if (Model.Page > 1) { <a asp-action="Vehicles" asp-route-q="@Model.Query" asp-route-brand="@Model.BrandFilter" asp-route-budget="@Model.Budget" asp-route-sort="@Model.Sort" asp-route-page="@(Model.Page - 1)">← Trước</a> }
+<span>Trang @Model.Page / @Model.TotalPages</span>
+@if (Model.Page < Model.TotalPages) { <a asp-action="Vehicles" asp-route-q="@Model.Query" asp-route-brand="@Model.BrandFilter" asp-route-budget="@Model.Budget" asp-route-sort="@Model.Sort" asp-route-page="@(Model.Page + 1)">Sau →</a> }
+</nav>
+}
+</section>

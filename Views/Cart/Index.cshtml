@@ -1,0 +1,7 @@
+@model List<MotoShopWeb.ViewModels.CartLine>
+@{ViewData["Title"]="Giỏ hàng";}
+<section class="wrap section"><p class="eyebrow">01 CHỌN XE / 02 XÁC NHẬN / 03 CHỜ LIÊN HỆ</p><h1 class="page-title">Giỏ xe của bạn</h1>
+@if(Model.Count==0){<div class="empty"><h2>Hành trình đang chờ bạn</h2><p>Chọn mẫu xe, chọn màu rồi thêm vào giỏ.</p><a class="button" asp-controller="Home" asp-action="Vehicles">Khám phá xe →</a></div>}
+else {<div class="checkout-grid"><div>@foreach(var line in Model){<article class="cart-line"><div><a asp-controller="Home" asp-action="Details" asp-route-id="@line.BikeId"><h3>@line.Name</h3></a><p>@line.Color · Số lượng: @line.Quantity</p>@if(!line.Available){<p class="validation">Xe đã ngừng hiển thị. Hãy bỏ xe này khỏi giỏ.</p>}<strong>@line.Total.ToString("N0") ₫</strong></div><form asp-action="Remove" method="post"><input type="hidden" name="colorId" value="@line.ColorId" /><button class="text-button" type="submit" aria-label="Bỏ @line.Name màu @line.Color">Bỏ khỏi giỏ ×</button></form></article>}</div>
+<aside class="panel"><p class="eyebrow">TÓM TẮT LỰA CHỌN</p><h2>@Model.Sum(x=>x.Total).ToString("N0") ₫</h2><p>Giá xe tham khảo. Phí giao xe, đăng ký và giá chốt sẽ được cửa hàng xác nhận riêng.</p><p>Gửi yêu cầu chưa giữ xe và chưa phát sinh thanh toán.</p><a class="button" asp-action="Checkout">Tiếp tục đặt xe →</a><p><a asp-controller="Home" asp-action="Vehicles">← Chọn thêm xe</a></p></aside></div>}
+</section>
